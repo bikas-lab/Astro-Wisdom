@@ -121,7 +121,8 @@ nav{position:sticky;top:0;z-index:80;background:linear-gradient(var(--glass-2),t
 
 /* ── ANNOUNCEMENT ── */
 .announce{display:flex;justify-content:center;padding:14px 24px 0}
-.announce-inner{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;background:var(--glass);border:1px solid var(--line);border-radius:var(--r-pill);padding:8px 8px 8px 18px;font-size:13px;backdrop-filter:blur(14px)}
+.announce-inner{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;background:var(--glass);border:1px solid rgba(255,92,168,.28);border-radius:var(--r-pill);padding:8px 8px 8px 18px;font-size:13px;backdrop-filter:blur(14px);animation:annGlow 2.6s ease-in-out infinite}
+@keyframes annGlow{0%,100%{box-shadow:0 0 18px -8px rgba(139,109,255,.5),0 0 0 1px rgba(139,109,255,.12)}50%{box-shadow:0 0 34px -2px rgba(255,92,168,.6),0 0 0 1px rgba(255,92,168,.3)}}
 .announce b{color:var(--ink)}
 .announce-txt{color:var(--ink-soft)}
 .announce-pill{background:var(--grad);color:#fff;font-size:11px;font-weight:700;letter-spacing:.04em;padding:5px 13px;border-radius:var(--r-pill)}
@@ -429,7 +430,7 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
 @media(max-width:540px){.sec{padding:60px 0}.cell-portrait{min-height:340px}}
 
 /* ── HERO OFFER CARD (replaces portrait) ── */
-.cell-offer{grid-area:portrait;display:flex;flex-direction:column;justify-content:center;gap:14px;background:linear-gradient(165deg,var(--glass-2),var(--glass))}
+.cell-offer{grid-area:portrait;display:flex;flex-direction:column;justify-content:space-between;gap:16px;background:linear-gradient(165deg,var(--glass-2),var(--glass))}
 .cell-offer::before{content:'';position:absolute;inset:0;border-radius:var(--r-md);padding:1.4px;background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
 .offer-badge{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.04em;background:var(--grad);color:#fff;padding:6px 14px;border-radius:var(--r-pill)}
 .offer-h{font-family:var(--ff-d);font-size:25px;font-weight:600;line-height:1.05;letter-spacing:-.01em}
@@ -497,7 +498,7 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
   <div class="wrap">
     <div class="bento hero-bento">
 
-      <div class="cell glass cell-head">
+      <div class="cell cell-head">
         <span class="eyebrow"><span class="dot"></span>India's first school of Astro-Psychology</span>
         <h1 class="hero-h1">From Zero to<br><span class="g">Astro Coach</span><br>in 3 Months.</h1>
         <p class="hero-sub">Change lives. Work internationally. Get paid in ₹, $ and €. India's first program uniting <b>Jyotish, modern psychology and professional coaching.</b></p>
