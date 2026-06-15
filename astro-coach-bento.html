@@ -89,6 +89,9 @@ img{display:block;max-width:100%}
 @keyframes drift2{to{transform:translate(-100px,120px) scale(1.08)}}
 @keyframes drift3{to{transform:translate(90px,-90px) scale(1.15)}}
 .grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.stars{position:absolute;inset:0;pointer-events:none}
+.stars i{position:absolute;border-radius:50%;background:var(--star);box-shadow:0 0 6px var(--star);animation:twinkle linear infinite}
+@keyframes twinkle{0%,100%{opacity:.12;transform:scale(.7)}50%{opacity:.95;transform:scale(1)}}
 
 /* ── CARD / GLASS ── */
 .glass{background:var(--glass);backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);border:1px solid var(--line);border-radius:var(--r-md)}
@@ -121,8 +124,11 @@ nav{position:sticky;top:0;z-index:80;background:linear-gradient(var(--glass-2),t
 
 /* ── ANNOUNCEMENT ── */
 .announce{display:flex;justify-content:center;padding:14px 24px 0}
-.announce-inner{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;background:var(--glass);border:1px solid rgba(255,92,168,.28);border-radius:var(--r-pill);padding:8px 8px 8px 18px;font-size:13px;backdrop-filter:blur(14px);animation:annGlow 2.6s ease-in-out infinite}
-@keyframes annGlow{0%,100%{box-shadow:0 0 18px -8px rgba(139,109,255,.5),0 0 0 1px rgba(139,109,255,.12)}50%{box-shadow:0 0 34px -2px rgba(255,92,168,.6),0 0 0 1px rgba(255,92,168,.3)}}
+.announce-inner{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:space-between;width:100%;max-width:var(--maxw);position:relative;overflow:hidden;background:var(--glass);border:1px solid rgba(255,92,168,.28);border-radius:var(--r-pill);padding:8px 8px 8px 18px;font-size:13px;backdrop-filter:blur(14px);animation:annGlow 3s ease-in-out infinite}
+.announce-inner>*{position:relative;z-index:2}
+.announce-inner::after{content:'';position:absolute;top:0;bottom:0;left:-45%;width:38%;z-index:1;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg);animation:sheen 5.5s ease-in-out infinite;pointer-events:none}
+@keyframes annGlow{0%,100%{box-shadow:0 0 20px -8px rgba(139,109,255,.55),0 0 0 1px rgba(139,109,255,.12)}50%{box-shadow:0 0 38px -2px rgba(255,92,168,.6),0 0 0 1px rgba(255,92,168,.32)}}
+@keyframes sheen{0%{left:-45%}45%,100%{left:135%}}
 .announce b{color:var(--ink)}
 .announce-txt{color:var(--ink-soft)}
 .announce-pill{background:var(--grad);color:#fff;font-size:11px;font-weight:700;letter-spacing:.04em;padding:5px 13px;border-radius:var(--r-pill)}
@@ -498,7 +504,7 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
 <div class="announce">
   <div class="announce-inner">
     <span class="announce-pill">⚡ 48-HR FLASH SALE</span>
-    <span class="announce-txt"><b>Astro Coach ₹24,999</b> · <b>Astrologer ₹7,999</b></span>
+    <span class="announce-txt"><b>AstroCoach ₹24,999</b> · <b>Astrologer ₹7,999</b></span>
     <span class="announce-timer"><span class="announce-ends">offer ends in</span><span class="announce-clock" id="rc">—</span></span>
   </div>
 </div>
@@ -1009,6 +1015,18 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
 
 /* MARQUEE DUPLICATE for seamless loop */
 (function(){var t=document.getElementById('mq');if(t)t.innerHTML+=t.innerHTML;})();
+
+/* TWINKLING STARS — theme-matched cosmic background */
+(function(){
+  var a=document.querySelector('.aurora');if(!a)return;
+  var s=document.createElement('div');s.className='stars';var h='';
+  for(var i=0;i<48;i++){
+    var x=(Math.random()*100).toFixed(2),y=(Math.random()*100).toFixed(2),
+        sz=(Math.random()*2+1).toFixed(1),du=(Math.random()*3.5+2).toFixed(1),dl=(Math.random()*5).toFixed(1);
+    h+='<i style="left:'+x+'%;top:'+y+'%;width:'+sz+'px;height:'+sz+'px;animation-duration:'+du+'s;animation-delay:'+dl+'s"></i>';
+  }
+  s.innerHTML=h;a.appendChild(s);
+})();
 
 /* COUNTDOWN — evergreen 48-hour flash sale (always running, resets when it hits zero) */
 var DUR=48*60*60*1000,KEY='acb-deadline';
