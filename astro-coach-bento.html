@@ -126,6 +126,15 @@ nav{position:sticky;top:0;z-index:80;background:linear-gradient(var(--glass-2),t
 .announce-txt{color:var(--ink-soft)}
 .announce-pill{background:var(--grad);color:#fff;font-size:11px;font-weight:700;letter-spacing:.04em;padding:5px 13px;border-radius:var(--r-pill)}
 .announce-clock{font-family:var(--ff-d);font-size:17px;font-weight:700;color:var(--ink);background:var(--glass-2);padding:5px 14px;border-radius:var(--r-pill);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.announce-timer{display:inline-flex;align-items:center;gap:9px}
+.announce-ends{color:var(--ink-faint)}
+@media(max-width:560px){
+  .announce{padding:12px 12px 0}
+  .announce-inner{flex-direction:column;gap:11px;border-radius:20px;padding:16px 16px;width:100%;max-width:440px;text-align:center}
+  .announce-txt{font-size:14px}
+  .announce-clock{font-size:24px;padding:7px 22px}
+  .announce-ends{font-size:12.5px}
+}
 
 /* ── HERO BENTO ── */
 .hero{padding:30px 0 56px}
@@ -478,8 +487,8 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
 <div class="announce">
   <div class="announce-inner">
     <span class="announce-pill">⚡ 48-HR FLASH SALE</span>
-    <span class="announce-txt"><b>Astro Coach ₹24,999</b> · <b>Astrologer ₹7,999</b> — offer ends in</span>
-    <span class="announce-clock" id="rc">—</span>
+    <span class="announce-txt"><b>Astro Coach ₹24,999</b> · <b>Astrologer ₹7,999</b></span>
+    <span class="announce-timer"><span class="announce-ends">offer ends in</span><span class="announce-clock" id="rc">—</span></span>
   </div>
 </div>
 
