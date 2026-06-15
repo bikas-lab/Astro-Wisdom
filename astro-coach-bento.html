@@ -162,7 +162,7 @@ nav{position:sticky;top:0;z-index:80;background:linear-gradient(var(--glass-2),t
 
 .hero-h1{font-family:var(--ff-d);font-size:clamp(38px,5vw,62px);font-weight:600;line-height:1.02;letter-spacing:-.03em;margin-bottom:18px}
 .hero-h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sub{font-size:16.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:26px;max-width:540px}
+.hero-sub{font-size:16.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:26px;max-width:none}
 .hero-sub b{color:var(--ink);font-weight:600}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
 
@@ -437,6 +437,16 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
 .offer-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:2px 0}
 .offer-list li{display:flex;gap:10px;font-size:13.5px;color:var(--ink-soft);align-items:flex-start;line-height:1.4}
 .offer-list .ic{width:17px;height:17px;flex-shrink:0;margin-top:2px;color:var(--gold)}
+.offer-price{padding-top:15px;border-top:1px solid var(--line)}
+.offer-price-row{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.offer-price-now{font-family:var(--ff-d);font-size:32px;font-weight:700;line-height:1;background:var(--grad-warm);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.offer-price-was{font-size:14px;color:var(--ink-ghost);text-decoration:line-through}
+.offer-price-save{font-size:11px;font-weight:600;color:var(--ink-soft);background:var(--glass-2);border:1px solid var(--line);padding:3px 9px;border-radius:var(--r-pill)}
+.offer-emi{font-size:12px;color:var(--ink-faint);margin-top:6px}
+.offer-proof{display:flex;align-items:center;gap:10px}
+.offer-stars{color:var(--gold);font-size:13px;letter-spacing:1px;flex-shrink:0}
+.offer-proof-txt{font-size:12.5px;color:var(--ink-soft);line-height:1.35}
+.offer-proof-txt b{color:var(--ink);font-weight:600}
 .offer-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
 .offer-tag{font-size:11.5px;font-weight:600;color:var(--ink-soft);background:var(--glass-2);border:1px solid var(--line);padding:5px 12px;border-radius:var(--r-pill)}
 .cell-offer .btn{width:100%;justify-content:center;margin-top:4px}
@@ -500,7 +510,7 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
 
       <div class="cell cell-head">
         <span class="eyebrow"><span class="dot"></span>India's first school of Astro-Psychology</span>
-        <h1 class="hero-h1">From Zero to<br><span class="g">Astro Coach</span><br>in 3 Months.</h1>
+        <h1 class="hero-h1">From Zero to <span class="g">Astro Coach</span> in 3 Months.</h1>
         <p class="hero-sub">Change lives. Work internationally. Get paid in ₹, $ and €. India's first program uniting <b>Jyotish, modern psychology and professional coaching.</b></p>
         <div class="hero-cta">
           <a href="#enroll" class="btn btn-primary lg">Enroll as Astro Coach →</a>
@@ -517,6 +527,14 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Placement &amp; international listing</li>
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Professional certification</li>
         </ul>
+        <div class="offer-price">
+          <div class="offer-price-row"><span class="offer-price-now">₹24,999</span><span class="offer-price-was">₹40,000</span><span class="offer-price-save">Save ₹15,001</span></div>
+          <div class="offer-emi">or ₹2,500/mo · no credit card needed</div>
+        </div>
+        <div class="offer-proof">
+          <span class="offer-stars">★★★★★</span>
+          <span class="offer-proof-txt"><b>5,000+ students</b> · 4.9/5 rating</span>
+        </div>
         <div class="offer-meta">
           <span class="offer-tag">🔥 Only 12 seats</span>
           <span class="offer-tag">📅 Next cohort opening</span>
