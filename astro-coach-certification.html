@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astro Coach Certification — A Professional Program by Puneet Nahata</title>
+<meta name="description" content="India's first program combining Jyotish, modern psychology and professional coaching. Become a certified Astro Coach in 3 months with Puneet Nahata.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+/* ════════════ THEME TOKENS ════════════ */
+:root{
+  --ff-d:'Fraunces',Georgia,serif;
+  --ff-b:'Inter',system-ui,sans-serif;
+  --gold:#c9a24b;
+  --gold-2:#e6c878;
+  --gold-3:#f3e0a8;
+  --saffron:#dd8a3e;
+  --r-sm:8px;--r-md:14px;--r-lg:22px;--r-pill:999px;
+  --maxw:1140px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+/* DARK (default) */
+[data-theme="dark"]{
+  --bg:#080d1a;
+  --bg-2:#0c1426;
+  --bg-3:#111c33;
+  --surface:rgba(255,255,255,.035);
+  --surface-2:rgba(255,255,255,.06);
+  --surface-solid:#0f1a30;
+  --glass:rgba(13,22,42,.6);
+  --ink:#f5f2ea;
+  --ink-soft:rgba(245,242,234,.62);
+  --ink-faint:rgba(245,242,234,.38);
+  --ink-ghost:rgba(245,242,234,.22);
+  --line:rgba(255,255,255,.09);
+  --line-gold:rgba(201,162,75,.28);
+  --gold-glow:rgba(201,162,75,.16);
+  --gold-wash:rgba(201,162,75,.07);
+  --hero-grad:radial-gradient(ellipse 80% 60% at 70% 20%,rgba(201,162,75,.14),transparent 60%),radial-gradient(ellipse 60% 50% at 15% 80%,rgba(86,64,160,.18),transparent 60%);
+  --shadow:0 30px 80px -30px rgba(0,0,0,.7);
+  --shadow-card:0 18px 50px -24px rgba(0,0,0,.6);
+  --portrait-frame:rgba(201,162,75,.4);
+  --img-fade:linear-gradient(180deg,transparent 55%,#0c1426 98%);
+  --star:rgba(255,255,255,.85);
+  --scheme:dark;
+}
+/* LIGHT */
+[data-theme="light"]{
+  --bg:#f6f1e7;
+  --bg-2:#fbf7ef;
+  --bg-3:#fffdf8;
+  --surface:rgba(20,30,55,.025);
+  --surface-2:rgba(20,30,55,.05);
+  --surface-solid:#fffdf7;
+  --glass:rgba(251,247,239,.75);
+  --ink:#15233f;
+  --ink-soft:rgba(21,35,63,.66);
+  --ink-faint:rgba(21,35,63,.45);
+  --ink-ghost:rgba(21,35,63,.28);
+  --line:rgba(21,35,63,.1);
+  --line-gold:rgba(165,124,42,.32);
+  --gold:#a87d28;
+  --gold-2:#b8902f;
+  --gold-3:#8a6620;
+  --gold-glow:rgba(168,125,40,.14);
+  --gold-wash:rgba(168,125,40,.06);
+  --hero-grad:radial-gradient(ellipse 80% 60% at 75% 15%,rgba(220,180,90,.28),transparent 60%),radial-gradient(ellipse 70% 60% at 10% 85%,rgba(150,130,200,.16),transparent 60%);
+  --shadow:0 30px 70px -34px rgba(60,45,15,.4);
+  --shadow-card:0 18px 44px -26px rgba(60,45,15,.28);
+  --portrait-frame:rgba(168,125,40,.45);
+  --img-fade:linear-gradient(180deg,transparent 60%,#fbf7ef 99%);
+  --star:rgba(168,125,40,.5);
+  --scheme:light;
+}
+
+body{
+  font-family:var(--ff-b);background:var(--bg);color:var(--ink);
+  line-height:1.7;font-size:16px;overflow-x:hidden;
+  transition:background .5s var(--ease),color .5s var(--ease);
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:var(--gold);color:var(--bg)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+/* ════════════ ANNOUNCEMENT RIBBON ════════════ */
+.ribbon{
+  background:linear-gradient(90deg,var(--bg-2),var(--bg-3),var(--bg-2));
+  border-bottom:1px solid var(--line);position:relative;z-index:90;
+  padding:9px 20px;display:flex;align-items:center;justify-content:center;
+  gap:14px;flex-wrap:wrap;font-size:13px;
+}
+.ribbon b{color:var(--gold-2);font-weight:600}
+.ribbon-txt{color:var(--ink-soft)}
+.ribbon-pill{background:var(--saffron);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-pill)}
+.ribbon-clock{font-weight:700;letter-spacing:.06em;color:var(--ink);background:var(--surface-2);padding:3px 11px;border-radius:6px;font-variant-numeric:tabular-nums}
+
+/* ════════════ NAV ════════════ */
+nav{
+  position:sticky;top:0;z-index:80;
+  background:var(--glass);backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  border-bottom:1px solid var(--line);padding:13px 0;
+  transition:background .5s var(--ease),border-color .5s var(--ease);
+}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--ff-d);font-size:20px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.brand-mark{width:34px;height:34px;flex-shrink:0}
+.brand span{color:var(--gold-2)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:13.5px;color:var(--ink-soft);font-weight:500;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-5px;width:0;height:1.5px;background:var(--gold);transition:width .25s var(--ease)}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:14px}
+.theme-btn{
+  width:38px;height:38px;border-radius:var(--r-pill);border:1px solid var(--line);
+  background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;
+  transition:.25s var(--ease);flex-shrink:0;
+}
+.theme-btn:hover{border-color:var(--line-gold);color:var(--gold-2);transform:rotate(-12deg)}
+.theme-btn svg{width:18px;height:18px}
+.theme-btn .ico-sun{display:none}
+[data-theme="light"] .theme-btn .ico-sun{display:block}
+[data-theme="light"] .theme-btn .ico-moon{display:none}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:none;
+  font-family:var(--ff-b);font-weight:600;letter-spacing:.01em;
+  transition:transform .18s var(--ease),box-shadow .25s var(--ease),background .25s;
+}
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#1a1408;
+  font-size:14px;padding:12px 24px;border-radius:var(--r-pill);
+  box-shadow:0 8px 24px -8px var(--gold-glow),inset 0 1px 0 rgba(255,255,255,.3);
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 32px -8px var(--gold-glow),inset 0 1px 0 rgba(255,255,255,.4)}
+.btn-gold.lg{font-size:16px;padding:16px 36px}
+.btn-ghost{
+  background:var(--surface);border:1px solid var(--line-gold);color:var(--gold-2);
+  font-size:14px;padding:11px 24px;border-radius:var(--r-pill);
+}
+.btn-ghost:hover{background:var(--gold-wash);transform:translateY(-2px)}
+@media(max-width:860px){.nav-links{display:none}.nav-cta-text{display:none}}
+
+/* ════════════ HERO ════════════ */
+.hero{position:relative;overflow:hidden;padding:80px 0 70px;border-bottom:1px solid var(--line)}
+.hero-bg{position:absolute;inset:0;background:var(--hero-grad);pointer-events:none;z-index:0}
+.starfield{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.9}
+.orbit-deco{position:absolute;top:-120px;right:-180px;width:620px;height:620px;z-index:0;pointer-events:none;opacity:.5;animation:spin 120s linear infinite}
+[data-theme="light"] .orbit-deco{opacity:.32}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-2);margin-bottom:22px}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--gold)}
+.hero-h1{font-family:var(--ff-d);font-size:clamp(40px,5.4vw,66px);font-weight:600;line-height:1.04;letter-spacing:-.02em;margin-bottom:22px}
+.hero-h1 em{font-style:italic;font-weight:500;background:linear-gradient(120deg,var(--gold-2),var(--gold-3),var(--gold-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:17.5px;color:var(--ink-soft);font-weight:300;line-height:1.75;margin-bottom:26px;max-width:520px}
+.hero-sub b{color:var(--ink);font-weight:500}
+.dur-tag{display:inline-flex;align-items:center;gap:9px;font-size:13px;color:var(--gold-3);background:var(--gold-wash);border:1px solid var(--line-gold);padding:8px 18px;border-radius:var(--r-pill);margin-bottom:30px}
+.dur-tag svg{width:15px;height:15px}
+.dur-tag b{color:var(--gold-2);font-weight:600}
+
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:22px}
+.price-inline{display:flex;align-items:baseline;gap:10px;margin-bottom:26px}
+.price-inline .was{font-size:15px;color:var(--ink-ghost);text-decoration:line-through}
+.price-inline .now{font-family:var(--ff-d);font-size:30px;font-weight:600;color:var(--gold-2)}
+.price-inline .from{font-size:13px;color:var(--ink-faint)}
+
+.hero-stats{display:flex;gap:0;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--surface)}
+.hstat{flex:1;padding:16px 10px;text-align:center;border-right:1px solid var(--line)}
+.hstat:last-child{border-right:none}
+.hstat-n{font-family:var(--ff-d);font-size:24px;font-weight:600;color:var(--gold-2);line-height:1}
+.hstat-l{font-size:10.5px;color:var(--ink-faint);line-height:1.35;margin-top:5px;letter-spacing:.02em}
+
+/* HERO RIGHT — PORTRAIT + COUNTDOWN */
+.hero-visual{position:relative}
+.portrait-card{position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--portrait-frame);box-shadow:var(--shadow)}
+.portrait-card img{width:100%;height:430px;object-fit:cover;object-position:60% 30%}
+.portrait-card::after{content:'';position:absolute;inset:0;background:var(--img-fade)}
+.portrait-badge{
+  position:absolute;left:18px;bottom:16px;z-index:2;
+  display:flex;align-items:center;gap:12px;
+  background:var(--glass);backdrop-filter:blur(14px);
+  border:1px solid var(--line);border-radius:var(--r-pill);padding:8px 16px 8px 8px;
+}
+.pb-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--gold-2),var(--gold));display:grid;place-items:center;font-family:var(--ff-d);font-weight:600;color:#1a1408;font-size:17px}
+.pb-name{font-family:var(--ff-d);font-size:15px;font-weight:600;color:var(--ink);line-height:1.1}
+.pb-role{font-size:11px;color:var(--gold-2);letter-spacing:.02em}
+.countdown-card{
+  position:absolute;right:-14px;top:-14px;z-index:3;
+  background:var(--glass);backdrop-filter:blur(16px) saturate(150%);
+  border:1px solid var(--line-gold);border-radius:var(--r-md);padding:14px 16px;
+  box-shadow:var(--shadow-card);text-align:center;min-width:158px;
+}
+.cc-lbl{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-2);margin-bottom:8px}
+.cc-digits{display:flex;justify-content:center;align-items:flex-start;gap:7px}
+.cc-u{display:flex;flex-direction:column;align-items:center}
+.cc-n{font-family:var(--ff-d);font-size:30px;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.cc-w{font-size:8px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-top:4px}
+.cc-sep{font-family:var(--ff-d);font-size:22px;color:var(--gold);opacity:.55}
+@media(max-width:920px){
+  .hero-grid{grid-template-columns:1fr;gap:46px}
+  .hero-visual{max-width:440px;margin:0 auto;width:100%}
+  .portrait-card img{height:380px}
+}
+
+/* ════════════ TRUST BAR ════════════ */
+.trust{background:var(--bg-2);border-bottom:1px solid var(--line);padding:16px 0}
+.trust-inner{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:center;gap:8px 4px;flex-wrap:wrap}
+.ti{font-size:12.5px;color:var(--ink-soft);display:flex;align-items:center;gap:7px;padding:0 12px}
+.ti svg{width:15px;height:15px;color:var(--gold);flex-shrink:0}
+.tdot{width:4px;height:4px;border-radius:50%;background:var(--line-gold)}
+
+/* ════════════ SECTION SCAFFOLD ════════════ */
+.sec{padding:88px 0;position:relative}
+.sec-alt{background:var(--bg-2)}
+.sec-eye{font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-2);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sec-eye::before{content:'';width:24px;height:1px;background:var(--gold)}
+.sec-eye.center{justify-content:center}
+.sec-h{font-family:var(--ff-d);font-size:clamp(30px,4vw,48px);font-weight:600;line-height:1.12;letter-spacing:-.02em;margin-bottom:14px}
+.sec-h em{font-style:italic;font-weight:500;color:var(--gold-2)}
+.sec-rule{width:44px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:0 0 28px}
+.sec-desc{font-size:16px;color:var(--ink-soft);line-height:1.75;max-width:640px}
+.center{text-align:center}
+.center .sec-eye::before{display:none}
+.center .sec-rule{margin:0 auto 28px}
+.center .sec-desc{margin-left:auto;margin-right:auto}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ════════════ THE GAP / COMPARISON ════════════ */
+.pull{font-family:var(--ff-d);font-style:italic;font-size:clamp(20px,2.6vw,26px);color:var(--gold-2);margin-top:22px;line-height:1.4}
+.comp{margin-top:40px;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--surface)}
+.comp table{width:100%;border-collapse:collapse}
+.comp th{padding:16px 22px;text-align:left;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.comp thead tr{background:var(--bg-3)}
+.comp th:first-child{color:var(--ink-faint);width:130px}
+.comp th:nth-child(2){color:var(--ink-faint)}
+.comp th:last-child{color:var(--gold-2);background:var(--gold-wash)}
+.comp td{padding:15px 22px;font-size:14.5px;border-top:1px solid var(--line);vertical-align:top;line-height:1.5}
+.comp td:first-child{color:var(--ink-faint);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;width:130px}
+.comp td:nth-child(2){color:var(--ink-soft)}
+.comp td:last-child{color:var(--ink);background:var(--gold-wash);font-weight:500}
+.comp tbody tr:hover td:nth-child(2){color:var(--ink)}
+.comp-foot{font-size:14px;color:var(--ink-soft);margin-top:18px;text-align:center}
+.comp-foot b{color:var(--ink)}
+
+/* ════════════ STAT BAND ════════════ */
+.statband{background:var(--bg-3);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:60px 0;position:relative;overflow:hidden}
+.statband-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:2}
+.sb{text-align:center;padding:14px 10px;border-right:1px solid var(--line)}
+.sb:last-child{border-right:none}
+.sb-n{font-family:var(--ff-d);font-size:clamp(36px,4.6vw,52px);font-weight:600;background:linear-gradient(120deg,var(--gold-2),var(--gold-3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.sb-l{font-size:12.5px;color:var(--ink-soft);margin-top:8px}
+@media(max-width:560px){.statband-inner{grid-template-columns:1fr 1fr;gap:24px 0}.sb{border-right:none}.sb:nth-child(odd){border-right:1px solid var(--line)}}
+
+/* ════════════ PROGRAM CARDS ════════════ */
+.prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:42px}
+.prog{position:relative;background:var(--surface-solid);border:1px solid var(--line);border-radius:var(--r-lg);padding:32px 28px;box-shadow:var(--shadow-card);transition:transform .3s var(--ease),border-color .3s}
+.prog:hover{transform:translateY(-4px)}
+.prog.feat{border-color:var(--line-gold);background:linear-gradient(180deg,var(--gold-wash),var(--surface-solid))}
+.prog-rec{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#1a1408;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 18px;border-radius:var(--r-pill);white-space:nowrap;box-shadow:0 6px 16px -6px var(--gold-glow)}
+.prog-type{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px}
+.prog.feat .prog-type{color:var(--gold-2)}
+.prog-name{font-family:var(--ff-d);font-size:25px;font-weight:600;margin-bottom:14px}
+.prog-price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+.prog-price{font-family:var(--ff-d);font-size:34px;font-weight:600;color:var(--gold-2);line-height:1}
+.prog-was{font-size:14px;color:var(--ink-ghost);text-decoration:line-through}
+.prog-save{font-size:11.5px;font-weight:600;background:var(--gold-wash);color:var(--gold-2);padding:3px 9px;border-radius:6px}
+.prog-sessions{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--gold-2);background:var(--gold-wash);border:1px solid var(--line-gold);padding:5px 14px;border-radius:var(--r-pill);margin:14px 0 20px}
+.prog-list{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:22px}
+.prog-list li{font-size:14px;color:var(--ink-soft);display:flex;gap:10px;line-height:1.5;align-items:flex-start}
+.prog-list li b{color:var(--ink);font-weight:600}
+.chk{flex-shrink:0;width:18px;height:18px;margin-top:1px;color:var(--gold)}
+.prog-tag{font-size:12px;color:var(--ink-faint);background:var(--surface-2);padding:6px 14px;border-radius:var(--r-pill);display:inline-block}
+.prog.feat .prog-tag{background:var(--gold-wash);color:var(--gold-2)}
+.prog .btn{width:100%;justify-content:center;margin-top:4px}
+@media(max-width:680px){.prog-grid{grid-template-columns:1fr}}
+
+/* ════════════ TIMELINE ════════════ */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:42px;position:relative}
+.tl-track{position:absolute;top:34px;left:7%;right:7%;height:2px;background:var(--line);z-index:0}
+.tl-track::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--gold),var(--gold-2));width:var(--prog,0%);transition:width 1.4s var(--ease)}
+.tl-s{text-align:center;padding:0 14px;position:relative;z-index:1}
+.tl-dot{width:54px;height:54px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;background:var(--surface-solid);border:1.5px solid var(--line);box-shadow:var(--shadow-card)}
+.tl-s.hl .tl-dot{border-color:var(--gold);background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#1a1408}
+.tl-dot svg{width:24px;height:24px;color:var(--gold-2)}
+.tl-s.hl .tl-dot svg{color:#1a1408}
+.tl-wk{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-2);margin-bottom:5px}
+.tl-t{font-family:var(--ff-d);font-size:18px;font-weight:600;margin-bottom:5px}
+.tl-d{font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+@media(max-width:680px){.tl{grid-template-columns:1fr;gap:28px}.tl-track{display:none}.tl-s{display:flex;gap:18px;text-align:left;align-items:flex-start}.tl-dot{margin:0;flex-shrink:0}}
+
+/* ════════════ CURRICULUM ════════════ */
+.curr-part{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin:36px 0 14px;padding-bottom:10px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+.curr-part.a{color:var(--ink-faint)}
+.curr-part.c{color:var(--gold-2)}
+.curr-part:first-of-type{margin-top:6px}
+.acc{border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;margin-bottom:8px;background:var(--surface);transition:border-color .25s}
+.acc:hover{border-color:var(--line-gold)}
+.acc-h{padding:16px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;user-select:none}
+.acc-meta{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+.acc-num{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:6px;flex-shrink:0}
+.acc-num.a{background:var(--surface-2);color:var(--ink-faint)}
+.acc-num.c{background:var(--gold-wash);color:var(--gold-2)}
+.acc-title{font-size:15.5px;font-weight:600;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.acc-wk{font-size:11.5px;color:var(--ink-faint);flex-shrink:0}
+.acc-chev{width:20px;height:20px;color:var(--gold-2);transition:transform .3s var(--ease);flex-shrink:0}
+.acc.open .acc-chev{transform:rotate(180deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.acc-inner{padding:4px 20px 22px;border-top:1px solid var(--line)}
+.acc-topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px;margin-top:16px}
+.acc-t{font-size:13px;color:var(--ink-soft);padding-left:20px;position:relative;line-height:1.5}
+.acc-t svg{position:absolute;left:0;top:4px;width:13px;height:13px;color:var(--gold)}
+@media(max-width:560px){.acc-wk{display:none}}
+
+/* ════════════ ECOSYSTEM (app showcase) ════════════ */
+.eco-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:44px}
+.eco-phones{display:flex;justify-content:center;gap:18px;position:relative}
+.phone{border-radius:30px;border:1px solid var(--line-gold);overflow:hidden;box-shadow:var(--shadow);background:var(--surface-solid)}
+.phone img{width:188px;display:block}
+.phone.tilt-l{transform:rotate(-5deg) translateY(14px);margin-right:-30px;z-index:1}
+.phone.mid{transform:translateY(-12px);z-index:3;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.phone.tilt-r{transform:rotate(5deg) translateY(14px);margin-left:-30px;z-index:1}
+.eco-list{list-style:none;display:flex;flex-direction:column;gap:18px}
+.eco-item{display:flex;gap:16px}
+.eco-ic{width:46px;height:46px;flex-shrink:0;border-radius:var(--r-sm);background:var(--gold-wash);border:1px solid var(--line-gold);display:grid;place-items:center;color:var(--gold-2)}
+.eco-ic svg{width:22px;height:22px}
+.eco-t{font-size:16px;font-weight:600;margin-bottom:3px}
+.eco-d{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+.eco-d b{color:var(--gold-2);font-weight:600}
+@media(max-width:840px){.eco-grid{grid-template-columns:1fr;gap:40px}.eco-phones{order:2}}
+@media(max-width:420px){.phone img{width:148px}}
+
+/* ════════════ WHAT YOU GET ════════════ */
+.get-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;margin-top:42px}
+.get-c{background:var(--surface-solid);border:1px solid var(--line);border-radius:var(--r-md);padding:26px 24px;transition:transform .3s var(--ease),border-color .3s;box-shadow:var(--shadow-card)}
+.get-c:hover{transform:translateY(-5px);border-color:var(--line-gold)}
+.get-c.hl{background:linear-gradient(180deg,var(--gold-wash),var(--surface-solid));border-color:var(--line-gold)}
+.get-ic{width:48px;height:48px;border-radius:var(--r-sm);background:var(--gold-wash);border:1px solid var(--line-gold);display:grid;place-items:center;color:var(--gold-2);margin-bottom:16px}
+.get-ic svg{width:24px;height:24px}
+.get-t{font-size:16px;font-weight:600;margin-bottom:8px}
+.get-d{font-size:13.5px;color:var(--ink-soft);line-height:1.65}
+
+/* ════════════ MENTOR BIO ════════════ */
+.bio-grid{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:start;margin-top:42px}
+.bio-img-wrap{position:relative}
+.bio-img{width:100%;border-radius:var(--r-lg);box-shadow:var(--shadow);border:1px solid var(--portrait-frame)}
+.bio-img-frame{position:absolute;inset:-10px;border:1px solid var(--line-gold);border-radius:var(--r-lg);pointer-events:none}
+.bio-quote{position:absolute;left:14px;right:14px;bottom:14px;background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 18px;font-family:var(--ff-d);font-style:italic;font-size:15px;color:var(--ink);line-height:1.4}
+.bio-name{font-family:var(--ff-d);font-size:30px;font-weight:600;margin-bottom:6px}
+.bio-role{font-size:13px;color:var(--gold-2);font-weight:500;letter-spacing:.03em;margin-bottom:24px}
+.bio-text{font-size:15.5px;color:var(--ink-soft);line-height:1.8;margin-bottom:18px}
+.bio-text b{color:var(--ink);font-weight:600}
+.bio-bullets{list-style:none;display:flex;flex-direction:column;gap:11px;margin:24px 0}
+.bio-bullets li{font-size:14px;color:var(--ink-soft);padding-left:26px;position:relative;line-height:1.55}
+.bio-bullets li svg{position:absolute;left:0;top:3px;width:16px;height:16px;color:var(--gold)}
+.as-seen-l{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+.as-seen-logos{display:flex;gap:10px;flex-wrap:wrap}
+.logo-chip{font-size:12px;font-weight:600;color:var(--ink-faint);border:1px solid var(--line);padding:6px 14px;border-radius:var(--r-pill);transition:.25s}
+.logo-chip:hover{border-color:var(--line-gold);color:var(--gold-2)}
+@media(max-width:780px){.bio-grid{grid-template-columns:1fr;gap:40px}.bio-img-wrap{max-width:360px;margin:0 auto}}
+
+/* ════════════ EMI ════════════ */
+.emi-label{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin:30px 0 12px}
+.emi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:14px}
+.emi-c{border:1px solid var(--line);border-radius:var(--r-md);padding:22px 16px;text-align:center;background:var(--surface-solid);transition:.25s}
+.emi-c:hover{border-color:var(--line-gold);transform:translateY(-3px)}
+.emi-c.best{border-color:var(--line-gold);background:linear-gradient(180deg,var(--gold-wash),var(--surface-solid))}
+.emi-m{font-family:var(--ff-d);font-size:30px;font-weight:600;line-height:1}
+.emi-c.best .emi-m{color:var(--gold-2)}
+.emi-ml{font-size:9.5px;color:var(--ink-faint);letter-spacing:.1em;text-transform:uppercase;margin:6px 0 12px}
+.emi-amt{font-size:17px;font-weight:600;margin-bottom:3px}
+.emi-tot{font-size:12px;color:var(--ink-faint)}
+
+/* ════════════ PLACEMENT ════════════ */
+.pl-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:42px}
+.pl-c{background:var(--surface-solid);border:1px solid var(--line);border-radius:var(--r-md);padding:26px 24px;display:flex;gap:18px;box-shadow:var(--shadow-card);transition:.3s var(--ease)}
+.pl-c:hover{border-color:var(--line-gold);transform:translateY(-3px)}
+.pl-ic{width:46px;height:46px;flex-shrink:0;border-radius:var(--r-sm);background:var(--gold-wash);border:1px solid var(--line-gold);display:grid;place-items:center;color:var(--gold-2)}
+.pl-ic svg{width:23px;height:23px}
+.pl-t{font-size:15.5px;font-weight:600;margin-bottom:5px}
+.pl-d{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+@media(max-width:640px){.pl-grid{grid-template-columns:1fr}}
+
+/* ════════════ ENROLL ════════════ */
+.enroll{background:var(--bg-3);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:88px 0;position:relative;overflow:hidden}
+.en-date{font-family:var(--ff-d);font-size:clamp(34px,5vw,56px);font-weight:600;margin-bottom:8px;letter-spacing:-.02em}
+.en-meta{font-size:14px;color:var(--ink-faint);margin-bottom:18px}
+.en-timer{font-size:14px;color:var(--ink-soft);margin-bottom:24px;font-variant-numeric:tabular-nums}
+.en-timer b{color:var(--gold-2);font-weight:600}
+.seat-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold-wash);border:1px solid var(--line-gold);color:var(--gold-2);font-size:13px;font-weight:500;padding:7px 18px;border-radius:var(--r-pill);margin-bottom:28px}
+.seat-badge svg{width:15px;height:15px}
+.en-options{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:680px;margin:0 auto 24px;text-align:left}
+.en-opt{background:var(--surface-solid);border:1px solid var(--line);border-radius:var(--r-md);padding:24px 22px;position:relative;box-shadow:var(--shadow-card)}
+.en-opt.feat{border-color:var(--line-gold);background:linear-gradient(180deg,var(--gold-wash),var(--surface-solid))}
+.en-opt-rec{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold-2),var(--gold));color:#1a1408;font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 14px;border-radius:var(--r-pill);white-space:nowrap}
+.en-opt-type{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
+.en-opt.feat .en-opt-type{color:var(--gold-2)}
+.en-opt-price{font-family:var(--ff-d);font-size:34px;font-weight:600;line-height:1}
+.en-opt.feat .en-opt-price{color:var(--gold-2)}
+.en-opt-was{font-size:13px;color:var(--ink-ghost);text-decoration:line-through;margin:4px 0 8px}
+.en-opt-sess{font-size:12.5px;font-weight:600;color:var(--gold-2);margin-bottom:18px}
+.en-opt .btn{width:100%;justify-content:center}
+.en-note{font-size:12.5px;color:var(--ink-faint);margin-bottom:8px}
+.en-self{font-size:13.5px;color:var(--ink-soft);margin-bottom:36px}
+.en-self a{color:var(--gold-2);text-decoration:underline;text-underline-offset:3px}
+.no-ref{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:18px 22px;text-align:left;max-width:600px;margin:0 auto}
+.nr-t{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.nr-d{font-size:13px;color:var(--ink-faint);line-height:1.6}
+@media(max-width:600px){.en-options{grid-template-columns:1fr}}
+
+/* ════════════ FAQ ════════════ */
+.faq-i{border-bottom:1px solid var(--line)}
+.faq-q{padding:20px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none}
+.faq-qt{font-size:15.5px;font-weight:600;color:var(--ink);line-height:1.4}
+.faq-ic{width:22px;height:22px;flex-shrink:0;color:var(--gold-2);transition:transform .3s var(--ease)}
+.faq-i.open .faq-ic{transform:rotate(45deg)}
+.faq-a-wrap{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-a{font-size:14.5px;color:var(--ink-soft);line-height:1.75;padding-bottom:20px}
+.faq-a b{color:var(--ink)}
+
+/* ════════════ QUOTE CLOSE ════════════ */
+.quote-sec{background:var(--bg-2);border-top:1px solid var(--line);padding:96px 0;text-align:center;position:relative;overflow:hidden}
+.bigq{font-family:var(--ff-d);font-style:italic;font-size:clamp(28px,4.4vw,48px);font-weight:500;line-height:1.3;max-width:720px;margin:0 auto 14px;letter-spacing:-.01em}
+.bigq em{background:linear-gradient(120deg,var(--gold-2),var(--gold-3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-style:italic}
+.bigq-attr{font-size:13.5px;color:var(--ink-faint);letter-spacing:.04em}
+.quote-cta{margin-top:40px}
+.quote-cta p{font-size:13px;color:var(--ink-faint);margin-top:16px}
+
+/* ════════════ FOOTER ════════════ */
+footer{background:var(--bg-3);border-top:1px solid var(--line);padding:40px 0 32px;text-align:center}
+.foot-brand{display:inline-flex;align-items:center;gap:10px;font-family:var(--ff-d);font-size:18px;font-weight:600;margin-bottom:14px}
+.foot-brand span{color:var(--gold-2)}
+footer p{font-size:12.5px;color:var(--ink-faint);max-width:620px;margin:0 auto 6px;line-height:1.6}
+
+/* ════════════ FLOATING MOBILE CTA ════════════ */
+.float-cta{position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--glass);backdrop-filter:blur(16px);border-top:1px solid var(--line-gold);padding:10px 16px;display:none;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -10px 30px -16px rgba(0,0,0,.4)}
+.fc-price{font-family:var(--ff-d);font-size:18px;font-weight:600;color:var(--gold-2);line-height:1}
+.fc-sub{font-size:10.5px;color:var(--ink-faint)}
+.float-cta .btn{padding:11px 22px}
+@media(max-width:680px){.float-cta{display:flex}body{padding-bottom:72px}}
+
+@media(max-width:540px){.sec{padding:64px 0}.wrap{padding:0 20px}.ribbon{font-size:11.5px}.countdown-card{position:static;margin:14px auto 0;min-width:0}.portrait-badge{position:static;margin-top:-30px;width:fit-content}}
+</style>
+</head>
+<body>
+
+<!-- ════ RIBBON ════ -->
+<div class="ribbon">
+  <span class="ribbon-pill">⚡ 48-Hr Flash Sale</span>
+  <span class="ribbon-txt"><b>Astro Coach ₹24,999</b> · <b>Astrologer ₹7,999</b> — ends 16 June, 8 PM IST</span>
+  <span class="ribbon-clock" id="rc">—</span>
+</div>
+
+<!-- ════ NAV ════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <svg class="brand-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="24" cy="24" r="22" stroke="url(#bg1)" stroke-width="1.4"/>
+        <circle cx="24" cy="24" r="15" stroke="url(#bg1)" stroke-width="1" opacity=".5"/>
+        <path d="M24 6 L26.5 21.5 L42 24 L26.5 26.5 L24 42 L21.5 26.5 L6 24 L21.5 21.5 Z" fill="url(#bg1)"/>
+        <circle cx="24" cy="24" r="3" fill="var(--bg)"/>
+        <defs><linearGradient id="bg1" x1="6" y1="6" x2="42" y2="42"><stop stop-color="var(--gold-2)"/><stop offset="1" stop-color="var(--gold)"/></linearGradient></defs>
+      </svg>
+      Astro<span>Coach</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#program">Programs</a></li>
+      <li><a href="#curriculum">Curriculum</a></li>
+      <li><a href="#ecosystem">Ecosystem</a></li>
+      <li><a href="#mentor">Mentor</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle light/dark theme">
+        <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a href="#enroll" class="btn btn-gold"><span class="nav-cta-text">Enroll from ₹7,999</span><span style="display:none" class="nav-cta-short">Enroll</span> →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════ HERO ════ -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <svg class="starfield" id="starfield" preserveAspectRatio="none"></svg>
+  <svg class="orbit-deco" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+    <circle cx="200" cy="200" r="198" stroke="var(--gold)" stroke-width=".5" opacity=".4"/>
+    <circle cx="200" cy="200" r="160" stroke="var(--gold)" stroke-width=".5" opacity=".3"/>
+    <circle cx="200" cy="200" r="120" stroke="var(--gold)" stroke-width=".5" opacity=".5" stroke-dasharray="3 6"/>
+    <circle cx="200" cy="2" r="4" fill="var(--gold-2)"/>
+    <circle cx="360" cy="200" r="3" fill="var(--gold-2)"/>
+    <circle cx="80" cy="320" r="2.5" fill="var(--gold-3)"/>
+    <g stroke="var(--gold)" stroke-width=".5" opacity=".55">
+      <path d="M200 40 L260 90 L240 160 L170 150 L150 80 Z"/>
+      <circle cx="200" cy="40" r="2" fill="var(--gold-2)"/><circle cx="260" cy="90" r="2" fill="var(--gold-2)"/><circle cx="240" cy="160" r="2" fill="var(--gold-2)"/><circle cx="170" cy="150" r="2" fill="var(--gold-2)"/><circle cx="150" cy="80" r="2" fill="var(--gold-2)"/>
+    </g>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-grid">
+      <!-- LEFT -->
+      <div>
+        <p class="eyebrow">India's first school of Astro-Psychology</p>
+        <h1 class="hero-h1">From Zero to<br><em>Astro Coach</em><br>in 3 Months.</h1>
+        <p class="hero-sub">Change lives. Work internationally. Get paid in ₹, $ and €. India's first program uniting <b>Jyotish, modern psychology and professional coaching</b> — so you build a practice that truly transforms clients.</p>
+        <div class="dur-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span><b>3 Months</b> · Live Bootcamp + Recorded + Supervised Practice</span>
+        </div>
+        <div class="hero-cta">
+          <a href="#enroll" class="btn btn-gold lg">Enroll as Astro Coach →</a>
+          <a href="#curriculum" class="btn btn-ghost">View curriculum</a>
+        </div>
+        <div class="price-inline">
+          <span class="was">₹40,000</span>
+          <span class="now">₹24,999</span>
+          <span class="from">or from <b style="color:var(--ink-soft)">₹2,500/mo</b> — no credit card</span>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat"><div class="hstat-n" data-count="20000" data-suffix="+">20,000+</div><div class="hstat-l">Personal<br>consultations</div></div>
+          <div class="hstat"><div class="hstat-n" data-count="5000" data-suffix="+">5,000+</div><div class="hstat-l">Students<br>trained</div></div>
+          <div class="hstat"><div class="hstat-n" data-count="200000" data-suffix="+">2L+</div><div class="hstat-l">App users<br>worldwide</div></div>
+          <div class="hstat"><div class="hstat-n">20 yrs</div><div class="hstat-l">Building<br>this system</div></div>
+        </div>
+      </div>
+      <!-- RIGHT -->
+      <div class="hero-visual">
+        <div class="portrait-card">
+          <img src="assets/puneet-hero.jpg" alt="Puneet Nahata — founder of Astro-Psychology">
+          <div class="portrait-badge">
+            <div class="pb-avatar">PN</div>
+            <div>
+              <div class="pb-name">Puneet Nahata</div>
+              <div class="pb-role">Celebrity Astrologer · Founder</div>
+            </div>
+          </div>
+        </div>
+        <div class="countdown-card">
+          <div class="cc-lbl">Flash sale ends in</div>
+          <div class="cc-digits">
+            <div class="cc-u"><span class="cc-n" id="th">47</span><span class="cc-w">Hrs</span></div>
+            <span class="cc-sep">:</span>
+            <div class="cc-u"><span class="cc-n" id="tm">59</span><span class="cc-w">Min</span></div>
+            <span class="cc-sep">:</span>
+            <div class="cc-u"><span class="cc-n" id="ts">59</span><span class="cc-w">Sec</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ════ TRUST BAR ════ -->
+<div class="trust">
+  <div class="trust-inner">
+    <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Professional certification</span>
+    <span class="tdot"></span>
+    <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Supervised client practice</span>
+    <span class="tdot"></span>
+    <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>International platform listing</span>
+    <span class="tdot"></span>
+    <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>EMI available · no credit card</span>
+  </div>
+</div>
+
+<!-- ════ THE GAP ════ -->
+<section class="sec">
+  <div class="wrap reveal">
+    <p class="sec-eye">The gap nobody talks about</p>
+    <h2 class="sec-h">Study astrology for years — and still<br><em>not earn from it.</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-desc">You can study astrology for five years. Learn hundreds of yogas. Memorise thousands of combinations. And still not know how to conduct a single professional consultation — or earn a single rupee from it.</p>
+    <p class="pull">We are not creating astrologers. We are creating Astro Coaches.</p>
+
+    <div class="comp">
+      <table>
+        <thead>
+          <tr><th></th><th>Traditional Astrologer</th><th>Professional Astro Coach</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Scope</td><td>Answers one question</td><td>Guides a complete transformation journey</td></tr>
+          <tr><td>Format</td><td>Single session</td><td>Multiple sessions over weeks or months</td></tr>
+          <tr><td>Payment</td><td>One-time payment</td><td>Long-term client relationship</td></tr>
+          <tr><td>Focus</td><td>Prediction-focused</td><td>Solution-focused</td></tr>
+          <tr><td>Clients</td><td>Constantly searching for new ones</td><td>Higher retention and repeat clients</td></tr>
+          <tr><td>Outcome</td><td>A transaction</td><td>A transformation</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="comp-foot">More impact. Better results. Longer relationships. More predictable income. <b>That is the Astro Coach difference.</b></p>
+  </div>
+</section>
+
+<!-- ════ STAT BAND ════ -->
+<div class="statband">
+  <svg class="starfield" id="starfield2" preserveAspectRatio="none" style="opacity:.5"></svg>
+  <div class="statband-inner">
+    <div class="sb"><div class="sb-n" data-count="20000" data-suffix="+">20,000+</div><div class="sb-l">Personal consultations</div></div>
+    <div class="sb"><div class="sb-n" data-count="5000" data-suffix="+">5,000+</div><div class="sb-l">Students trained</div></div>
+    <div class="sb"><div class="sb-n">2,00,000+</div><div class="sb-l">App users worldwide</div></div>
+    <div class="sb"><div class="sb-n">20 yrs</div><div class="sb-l">Building this system</div></div>
+  </div>
+</div>
+
+<!-- ════ PROGRAMS ════ -->
+<section id="program" class="sec sec-alt">
+  <div class="wrap reveal">
+    <div class="center">
+      <p class="sec-eye center">Two paths · both lead to a career</p>
+      <h2 class="sec-h">Choose your program</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="prog-grid">
+      <!-- ASTROLOGER -->
+      <div class="prog">
+        <p class="prog-type">Professional Astrologer</p>
+        <h3 class="prog-name">Astrology Professional</h3>
+        <div class="prog-price-row">
+          <span class="prog-price">₹7,999</span>
+          <span class="prog-was">₹15,000</span>
+          <span class="prog-save">Save ₹7,001</span>
+        </div>
+        <span class="prog-sessions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>24–28 Live Sessions</span>
+        <ul class="prog-list">
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>24–28 live sessions with Puneet Nahata</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Foundations — charts, signs, planets, houses, yogas</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Prediction — Dasha, transit, life analysis</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Professional consultation structure & ethics</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Astrology remedies and timing</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Supervised practice & case studies</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>Professional Astrologer certification</b></li>
+        </ul>
+        <a href="#enroll" class="btn btn-ghost">Enroll at ₹7,999 →</a>
+      </div>
+      <!-- ASTRO COACH FEAT -->
+      <div class="prog feat">
+        <span class="prog-rec">★ Most popular — Recommended</span>
+        <p class="prog-type">Astro Coach</p>
+        <h3 class="prog-name">Astro Coach Certification</h3>
+        <div class="prog-price-row">
+          <span class="prog-price">₹24,999</span>
+          <span class="prog-was">₹40,000</span>
+          <span class="prog-save">Save ₹15,001</span>
+        </div>
+        <span class="prog-sessions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>36+ Live Sessions</span>
+        <ul class="prog-list">
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>Everything in Professional Astrologer, plus:</b></li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Astro Profile system — psychology-based chart diagnosis</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Foundations of modern psychology & human behaviour</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>1-month & 3-month client transformation programs</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Supervised live consultations with real clients</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>App, software & client-management tools</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Placement support & international platform listing</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>Earn in ₹, $ and € with international clients</b></li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>Astro Coach certification by Puneet Nahata</b></li>
+        </ul>
+        <a href="#enroll" class="btn btn-gold">Enroll at ₹24,999 →</a>
+      </div>
+    </div>
+    <p class="comp-foot">48-hr sale prices on both — end <b>16 June, 8 PM IST</b>. The Astro Coach program is recommended for anyone serious about building a professional practice and income.</p>
+  </div>
+</section>
+
+<!-- ════ TIMELINE ════ -->
+<section class="sec">
+  <div class="wrap reveal">
+    <div class="center">
+      <p class="sec-eye center">Program structure</p>
+      <h2 class="sec-h">3 months. <em>One complete journey.</em></h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="tl" id="timeline">
+      <div class="tl-track"></div>
+      <div class="tl-s">
+        <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <div class="tl-wk">2 Weeks</div><div class="tl-t">Foundations</div><div class="tl-d">Charts, signs, planets, houses, yogas</div>
+      </div>
+      <div class="tl-s">
+        <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+        <div class="tl-wk">3 Weeks</div><div class="tl-t">Prediction</div><div class="tl-d">Dasha, transit, life analysis</div>
+      </div>
+      <div class="tl-s">
+        <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <div class="tl-wk">4 Weeks</div><div class="tl-t">Professional Practice</div><div class="tl-d">Consultations, remedies, real cases</div>
+      </div>
+      <div class="tl-s hl">
+        <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9z"/></svg></div>
+        <div class="tl-wk">4 Weeks · Bootcamp</div><div class="tl-t">Astro Coach</div><div class="tl-d">Psychology, transformation, coaching</div>
+      </div>
+    </div>
+    <p class="comp-foot" style="margin-top:36px">Total: <b>13 weeks</b> of structured live + recorded learning — approximately 3 months.</p>
+  </div>
+</section>
+
+<!-- ════ CURRICULUM ════ -->
+<section id="curriculum" class="sec sec-alt">
+  <div class="wrap reveal">
+    <p class="sec-eye">Full curriculum</p>
+    <h2 class="sec-h">Everything you'll learn — <em>in detail</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-desc">Click any module to expand. All 7 modules are included in the Astro Coach Bootcamp.</p>
+
+    <p class="curr-part a">Part 1 — Astrology Professional · Weeks 1–9</p>
+    <div class="acc">
+      <div class="acc-h"><div class="acc-meta"><span class="acc-num a">Module I</span><span class="acc-title">Foundations of Astrology</span><span class="acc-wk">Weeks 1–2</span></div><svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></div>
+      <div class="acc-body"><div class="acc-inner"><div class="acc-topics">
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Casting the horoscope</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Astrological terminology</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Zodiac signs</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Planets — nature and strength</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Retrograde & combust planets</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Houses and significations</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Friendship between planets</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Yogas and combinations</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Horoscope analysis & interpretation</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Practical exercises & case studies</span>
+      </div></div></div>
+    </div>
+    <div class="acc">
+      <div class="acc-h"><div class="acc-meta"><span class="acc-num a">Module II</span><span class="acc-title">Prediction & Life Analysis</span><span class="acc-wk">Weeks 3–5</span></div><svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></div>
+      <div class="acc-body"><div class="acc-inner"><div class="acc-topics">
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Planetary periods (Dasha)</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Transit analysis</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Prediction methodology</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>PACE system</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Love and marriage</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Money, wealth and career</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Compatibility analysis</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Children and immigration</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Divisional charts</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Saturn, Jupiter, Rahu-Ketu transits</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Practical case studies</span>
+      </div></div></div>
+    </div>
+    <div class="acc">
+      <div class="acc-h"><div class="acc-meta"><span class="acc-num a">Module III</span><span class="acc-title">Consultation & Professional Practice</span><span class="acc-wk">Weeks 6–9</span></div><svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></div>
+      <div class="acc-body"><div class="acc-inner"><div class="acc-topics">
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Health, energy & spiritual analysis</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Karmic balances & life lessons</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Astrology remedies</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Timing of remedies</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Professional consultation structure</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Client communication</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Ethics and guidelines</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Difficult cases & special situations</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Supervised practice sessions</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Real client cases</span>
+      </div></div></div>
+    </div>
+
+    <p class="curr-part c">Part 2 — Astro Coach Certification · Weeks 10–13 (Bootcamp only)</p>
+    <div class="acc">
+      <div class="acc-h"><div class="acc-meta"><span class="acc-num c">Coach I</span><span class="acc-title">Understanding Human Behaviour</span><span class="acc-wk">Week 10</span></div><svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></div>
+      <div class="acc-body"><div class="acc-inner"><div class="acc-topics">
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Astrologer vs Astro Coach</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Positive vs fatalistic astrology</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Foundations of modern psychology</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Inner child, inner mother, inner father</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Survival modes</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Emotional patterns</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Archetypes & behavioural structures</span>
+      </div></div></div>
+    </div>
+    <div class="acc">
+      <div class="acc-h"><div class="acc-meta"><span class="acc-num c">Coach II</span><span class="acc-title">Astro Profile & Deep Diagnosis</span><span class="acc-wk">Week 11</span></div><svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></div>
+      <div class="acc-body"><div class="acc-inner"><div class="acc-topics">
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Astro Profile system (proprietary)</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Identifying strengths and gifts</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Blind spots & karmic lessons</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Relationship patterns</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Money patterns</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Self-sabotage mechanisms</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Repeating life cycles</span>
+      </div></div></div>
+    </div>
+    <div class="acc">
+      <div class="acc-h"><div class="acc-meta"><span class="acc-num c">Coach III</span><span class="acc-title">Transformation Systems</span><span class="acc-wk">Week 12</span></div><svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></div>
+      <div class="acc-body"><div class="acc-inner"><div class="acc-topics">
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Root cause analysis</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Creating transformation roadmaps</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Astro Programs framework</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>1-month transformation programs</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>3-month transformation programs</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Goal setting & accountability systems</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Progress tracking tools</span>
+      </div></div></div>
+    </div>
+    <div class="acc">
+      <div class="acc-h"><div class="acc-meta"><span class="acc-num c">Coach IV</span><span class="acc-title">Professional Astro Coaching</span><span class="acc-wk">Week 13</span></div><svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></div>
+      <div class="acc-body"><div class="acc-inner"><div class="acc-topics">
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Step-by-step consultation structure</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Advanced communication skills</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Building deep client trust</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Delivering sensitive information</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Handling difficult clients</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Creating client action plans</span>
+        <span class="acc-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Live practice case studies</span>
+      </div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ ECOSYSTEM ════ -->
+<section id="ecosystem" class="sec">
+  <div class="wrap reveal">
+    <p class="sec-eye">You are not joining a course</p>
+    <h2 class="sec-h">You enter a <em>complete ecosystem</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-desc">Most competitors have a course. You join something far bigger — a proven framework, a global app, and a ready international client base.</p>
+    <div class="eco-grid">
+      <div class="eco-phones">
+        <div class="phone tilt-l"><img src="assets/app-programs.jpg" alt="Astro Coach app — programs"></div>
+        <div class="phone mid"><img src="assets/app-home.jpg" alt="Astro Coach app — daily predictions"></div>
+        <div class="phone tilt-r"><img src="assets/app-profile.jpg" alt="Astro Coach app — profile"></div>
+      </div>
+      <ul class="eco-list">
+        <li class="eco-item"><div class="eco-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></div><div><div class="eco-t">Astro Profile System</div><div class="eco-d">Puneet's proprietary framework — 20 years in the making, proven across <b>20,000+ personal consultations</b>.</div></div></li>
+        <li class="eco-item"><div class="eco-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><div><div class="eco-t">Astro Coach App</div><div class="eco-d"><b>2,00,000+ users</b> — the majority international, from Russia, Europe and beyond. Qualified coaches are paid in foreign currency.</div></div></li>
+        <li class="eco-item"><div class="eco-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div><div class="eco-t">Placement Opportunity</div><div class="eco-d">Qualified graduates are invited into the international Astro Coach ecosystem — an <b>immediate client base</b>, ready and waiting.</div></div></li>
+        <li class="eco-item"><div class="eco-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg></div><div><div class="eco-t">Real Income Potential</div><div class="eco-d">Many coaches on the platform earn <b>₹1,00,000+ per month</b> — international clients mean dollars and euros, not just rupees.</div></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ════ WHAT YOU GET ════ -->
+<section class="sec sec-alt">
+  <div class="wrap reveal">
+    <p class="sec-eye">What's included</p>
+    <h2 class="sec-h">Everything to build <em>a real practice</em></h2>
+    <div class="sec-rule"></div>
+    <div class="get-grid">
+      <div class="get-c hl"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9z"/></svg></div><div class="get-t">Astro Profile System</div><div class="get-d">Proprietary astro-psychology diagnosis tool. Map any client's strengths, blind spots, money patterns and karmic lessons from their birth chart.</div></div>
+      <div class="get-c hl"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div class="get-t">Astro Program Framework</div><div class="get-d">Ready-to-deploy 1-month and 3-month client transformation programs with exercises, meditation and accountability tools.</div></div>
+      <div class="get-c"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m10 8 5 3-5 3V8z"/></svg></div><div class="get-t">Full recorded curriculum</div><div class="get-d">All 13 weeks recorded in high quality. Revisit any lesson anytime. Download notes and case-study materials.</div></div>
+      <div class="get-c"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="get-t">Supervised consultations</div><div class="get-d">Practice on real clients under structured supervision before graduating. Build real confidence with real feedback.</div></div>
+      <div class="get-c"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><div class="get-t">App & software tools</div><div class="get-d">Client management, notes, scheduling and progress tracking — a complete digital practice used by 2L+ users globally.</div></div>
+      <div class="get-c"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg></div><div class="get-t">Cohort community</div><div class="get-d">Learn alongside a batch of fellow practitioners. Peer support, case reviews and discussion across 5,000+ alumni.</div></div>
+      <div class="get-c hl"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg></div><div class="get-t">Professional certification</div><div class="get-d">Certified Astro Coach credential on completion — recognised on the international platform and assessed personally by Puneet Nahata.</div></div>
+      <div class="get-c hl"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="get-t">International platform listing</div><div class="get-d">Graduates listed on the Astro Coach global platform — 2L+ users seeking qualified coaches. Earn in rupees, dollars and euros.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ MENTOR ════ -->
+<section id="mentor" class="sec">
+  <div class="wrap reveal">
+    <p class="sec-eye">Your mentor</p>
+    <h2 class="sec-h">Puneet Nahata</h2>
+    <div class="sec-rule"></div>
+    <div class="bio-grid">
+      <div class="bio-img-wrap">
+        <img src="assets/puneet-hero.jpg" alt="Puneet Nahata — Celebrity Astrologer and founder of Astro-Psychology" class="bio-img">
+        <div class="bio-img-frame"></div>
+      </div>
+      <div>
+        <p class="bio-name">Puneet Nahata</p>
+        <p class="bio-role">Celebrity Astrologer · Founder of Astro-Psychology · Lead Mentor</p>
+        <p class="bio-text">I spent almost half my life in the West — and what surprised me most was this: in nearly 80 years since Freud, not a single astrologer had built a demonstrable system showing the depth of Jyotish in understanding the human mind and behaviour.</p>
+        <p class="bio-text">So I built one. Over 20 years I developed an <b>Astro-Psychology framework</b> people could study, apply and test for themselves. It found success across Russia and Europe — trusted by celebrities, politicians and business leaders. I became one of the most recognised astrologers in Russia, with regular appearances on national television.</p>
+        <p class="bio-text">Now I am bringing it home. My dream: <b>10,000 Astro Coaches across India</b> — each one carrying this science forward, building their own career, and transforming lives from anywhere in the world.</p>
+        <ul class="bio-bullets">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>20,000+ personal consultations across Russia, Europe and internationally</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>5,000+ students trained — one of the largest Jyotish communities outside India</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>2,00,000+ users on the Astro Coach platform, majority international</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Trusted advisor to celebrities, politicians and Forbes-listed leaders</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>Recognised authority on Russian national television & international media</li>
+        </ul>
+        <p class="as-seen-l">As seen on</p>
+        <div class="as-seen-logos">
+          <span class="logo-chip">Channel One</span>
+          <span class="logo-chip">Russia 1</span>
+          <span class="logo-chip">REN TV</span>
+          <span class="logo-chip">TASS</span>
+          <span class="logo-chip">RBC</span>
+          <span class="logo-chip">Kommersant</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ EMI ════ -->
+<section id="emi" class="sec sec-alt">
+  <div class="wrap reveal">
+    <p class="sec-eye">Flexible payment</p>
+    <h2 class="sec-h">Pay in <em>easy instalments</em></h2>
+    <div class="sec-rule"></div>
+    <p class="sec-desc">No credit card required. EMI via UPI or bank transfer. Message us on WhatsApp to confirm your plan before paying.</p>
+    <p class="emi-label">Astro Coach — ₹24,999</p>
+    <div class="emi-grid">
+      <div class="emi-c best"><div class="emi-m">Full</div><div class="emi-ml">One-time</div><div class="emi-amt">₹24,999</div><div class="emi-tot">Best value</div></div>
+      <div class="emi-c"><div class="emi-m">3</div><div class="emi-ml">Month EMI</div><div class="emi-amt">₹8,500/mo</div><div class="emi-tot">Total ₹25,500</div></div>
+      <div class="emi-c"><div class="emi-m">6</div><div class="emi-ml">Month EMI</div><div class="emi-amt">₹4,500/mo</div><div class="emi-tot">Total ₹27,000</div></div>
+      <div class="emi-c"><div class="emi-m">12</div><div class="emi-ml">Month EMI</div><div class="emi-amt">₹2,500/mo</div><div class="emi-tot">Total ₹30,000</div></div>
+    </div>
+    <p class="emi-label">Professional Astrologer — ₹7,999</p>
+    <div class="emi-grid">
+      <div class="emi-c best"><div class="emi-m">Full</div><div class="emi-ml">One-time</div><div class="emi-amt">₹7,999</div><div class="emi-tot">Best value</div></div>
+      <div class="emi-c"><div class="emi-m">3</div><div class="emi-ml">Month EMI</div><div class="emi-amt">₹2,800/mo</div><div class="emi-tot">Total ₹8,400</div></div>
+      <div class="emi-c"><div class="emi-m">6</div><div class="emi-ml">Month EMI</div><div class="emi-amt">₹1,500/mo</div><div class="emi-tot">Total ₹9,000</div></div>
+    </div>
+    <p class="comp-foot" style="margin-top:20px">EMI amounts are indicative. Final terms confirmed at enrollment via WhatsApp.</p>
+  </div>
+</section>
+
+<!-- ════ PLACEMENT ════ -->
+<section class="sec">
+  <div class="wrap reveal">
+    <p class="sec-eye">After you graduate</p>
+    <h2 class="sec-h">Placement & <em>practice support</em></h2>
+    <div class="sec-rule"></div>
+    <div class="pl-grid">
+      <div class="pl-c"><div class="pl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div><div class="pl-t">International platform listing</div><div class="pl-d">Certified graduates listed on the Astro Coach global platform — access to clients in India and internationally without building your own audience.</div></div></div>
+      <div class="pl-c"><div class="pl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><div class="pl-t">Client referrals from the network</div><div class="pl-d">Once verified through supervised sessions, you become eligible for referrals from Puneet's existing international client base.</div></div></div>
+      <div class="pl-c"><div class="pl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><div><div class="pl-t">Business setup guidance</div><div class="pl-d">How to price, structure programs, onboard clients and build a stable monthly income from coaching — in India and abroad.</div></div></div>
+      <div class="pl-c"><div class="pl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><div class="pl-t">Alumni community & mentorship</div><div class="pl-d">Post-graduation access to the 5,000+ alumni network, periodic group calls and ongoing peer case review. You are not alone.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ ENROLL ════ -->
+<section id="enroll" class="enroll">
+  <svg class="orbit-deco" viewBox="0 0 400 400" fill="none" aria-hidden="true" style="left:-200px;right:auto;top:auto;bottom:-150px">
+    <circle cx="200" cy="200" r="198" stroke="var(--gold)" stroke-width=".5" opacity=".3"/>
+    <circle cx="200" cy="200" r="140" stroke="var(--gold)" stroke-width=".5" opacity=".4" stroke-dasharray="3 6"/>
+  </svg>
+  <div class="wrap center" style="position:relative;z-index:2">
+    <p class="sec-eye center">Next batch starts</p>
+    <p class="en-date">15 July 2025</p>
+    <p class="en-meta">Weekend live sessions · Recordings within 24 hrs · Hindi & English</p>
+    <p class="en-timer">⚡ Sale ends <b>16 June 2025, 8 PM IST</b> — time left: <b id="it">—</b></p>
+    <span class="seat-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Only 12 seats in the July 2025 cohort</span>
+
+    <div class="en-options">
+      <div class="en-opt">
+        <p class="en-opt-type">Professional Astrologer</p>
+        <p class="en-opt-price">₹7,999</p>
+        <p class="en-opt-was">₹15,000</p>
+        <p class="en-opt-sess">24–28 Live Sessions</p>
+        <a href="https://wa.me/91XXXXXXXXXX?text=I+want+to+enroll+in+Professional+Astrologer+program" class="btn btn-ghost">Enroll →</a>
+      </div>
+      <div class="en-opt feat">
+        <span class="en-opt-rec">Recommended</span>
+        <p class="en-opt-type">Astro Coach</p>
+        <p class="en-opt-price">₹24,999</p>
+        <p class="en-opt-was">₹40,000</p>
+        <p class="en-opt-sess">36+ Live Sessions</p>
+        <a href="https://wa.me/91XXXXXXXXXX?text=I+want+to+enroll+in+the+Astro+Coach+program" class="btn btn-gold">Enroll →</a>
+      </div>
+    </div>
+    <p class="en-note">Message on WhatsApp · EMI available on both programs · no credit card required</p>
+    <p class="en-self">EMI from <a href="#emi">₹2,500/month on Astro Coach →</a></p>
+
+    <div class="no-ref">
+      <p class="nr-t">Important — please read before enrolling</p>
+      <p class="nr-d">This program does not offer a money-back guarantee. We believe in the value of full commitment — yours to the learning, and ours to your growth. Attend the free webinar, review the curriculum, and message us on WhatsApp with any questions before paying. Once enrolled, your seat is confirmed and the fee is non-refundable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FAQ ════ -->
+<section id="faq" class="sec sec-alt">
+  <div class="wrap reveal">
+    <p class="sec-eye">Before you enroll</p>
+    <h2 class="sec-h">Common questions</h2>
+    <div class="sec-rule"></div>
+    <div class="faq-i"><div class="faq-q"><span class="faq-qt">Do I need prior knowledge of astrology?</span><svg class="faq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><div class="faq-a-wrap"><div class="faq-a">No. Module I is designed for complete beginners and covers everything from horoscope casting to basic interpretation. Students with prior knowledge simply move through the early material faster.</div></div></div>
+    <div class="faq-i"><div class="faq-q"><span class="faq-qt">What's the difference between Professional Astrologer (₹7,999) and Astro Coach (₹24,999)?</span><svg class="faq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><div class="faq-a-wrap"><div class="faq-a">The Professional Astrologer program covers 24–28 live sessions across Modules I–III — foundations, prediction and professional practice. The <b>Astro Coach</b> program includes everything in the Astrologer track, plus 36+ sessions total, the Astro Profile system, psychology training, 1-month & 3-month transformation programs, supervised client practice, placement support, and full Astro Coach certification. If you want to build a professional coaching practice and earn sustainably, Astro Coach is the right choice.</div></div></div>
+    <div class="faq-i"><div class="faq-q"><span class="faq-qt">How many hours per week does the Bootcamp require?</span><svg class="faq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><div class="faq-a-wrap"><div class="faq-a">Expect 6–10 hours per week — live sessions on weekends, recorded content on weekdays, and practice exercises. All live sessions are recorded and available within 24 hours.</div></div></div>
+    <div class="faq-i"><div class="faq-q"><span class="faq-qt">Is there a refund or money-back guarantee?</span><svg class="faq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><div class="faq-a-wrap"><div class="faq-a">There is no money-back guarantee. Please attend the free webinar, review the full curriculum, and message us with any questions before enrolling. Once payment is made, the fee is non-refundable.</div></div></div>
+    <div class="faq-i"><div class="faq-q"><span class="faq-qt">Can I build an international clientele after graduating?</span><svg class="faq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><div class="faq-a-wrap"><div class="faq-a">Yes. Certified Astro Coach graduates are listed on the global platform — used by 2,00,000+ users, majority international — giving you access to clients paying in dollars and euros without building your own audience.</div></div></div>
+    <div class="faq-i"><div class="faq-q"><span class="faq-qt">When can I start earning after completing the program?</span><svg class="faq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><div class="faq-a-wrap"><div class="faq-a">Many students begin taking paid practice consultations during supervised sessions in Module III — before graduation. By the end of 3 months you'll have the tools, framework, platform access and placement support to begin building income. We cannot guarantee specific earnings, but we give you everything needed to create them.</div></div></div>
+    <div class="faq-i"><div class="faq-q"><span class="faq-qt">Can I pay in instalments?</span><svg class="faq-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><div class="faq-a-wrap"><div class="faq-a">Yes. EMI options of 3, 6 and 12 months are available via UPI or bank transfer — no credit card required. Message us on WhatsApp before enrolling to confirm your preferred plan.</div></div></div>
+  </div>
+</section>
+
+<!-- ════ QUOTE CLOSE ════ -->
+<section class="quote-sec">
+  <svg class="starfield" id="starfield3" preserveAspectRatio="none" style="opacity:.6"></svg>
+  <div class="wrap" style="position:relative;z-index:2">
+    <p class="bigq">"Your chart is not your <em>ceiling.</em>"</p>
+    <p class="bigq-attr">— Puneet Nahata</p>
+    <div class="quote-cta">
+      <a href="#enroll" class="btn btn-gold lg">Join the July 2025 Cohort →</a>
+      <p>Astro Coach ₹24,999 · Professional Astrologer ₹7,999 · Sale ends 16 June 8 PM IST · 12 seats only</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">
+      <svg width="28" height="28" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 6 L26.5 21.5 L42 24 L26.5 26.5 L24 42 L21.5 26.5 L6 24 L21.5 21.5 Z" fill="var(--gold-2)"/></svg>
+      Astro<span>Coach</span>
+    </div>
+    <p>The educational arm of the Astro Coach ecosystem · A program by Puneet Nahata · Questions? Message us on WhatsApp before enrolling.</p>
+    <p style="margin-top:10px">© 2025 Astro Coach · This is an educational program; outcomes vary by individual effort.</p>
+  </div>
+</footer>
+
+<!-- ════ FLOATING MOBILE CTA ════ -->
+<div class="float-cta">
+  <div>
+    <div class="fc-price">₹24,999 <span style="font-size:12px;color:var(--ink-ghost);text-decoration:line-through;font-family:var(--ff-b)">₹40,000</span></div>
+    <div class="fc-sub">Astro Coach · sale ends 16 June</div>
+  </div>
+  <a href="#enroll" class="btn btn-gold">Enroll →</a>
+</div>
+
+<script>
+/* ── THEME TOGGLE ── */
+(function(){
+  var root=document.documentElement;
+  var saved=localStorage.getItem('ac-theme');
+  if(saved) root.setAttribute('data-theme',saved);
+  document.getElementById('themeBtn').addEventListener('click',function(){
+    var next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    localStorage.setItem('ac-theme',next);
+    buildStars();
+  });
+})();
+
+/* ── STARFIELD (SVG) ── */
+function buildStars(){
+  var color=getComputedStyle(document.documentElement).getPropertyValue('--star').trim();
+  ['starfield','starfield2','starfield3'].forEach(function(id){
+    var svg=document.getElementById(id);
+    if(!svg)return;
+    var w=1200,h=600,n=id==='starfield'?90:45,html='';
+    for(var i=0;i<n;i++){
+      var x=(Math.random()*w).toFixed(1),y=(Math.random()*h).toFixed(1);
+      var r=(Math.random()*1.4+0.3).toFixed(2),o=(Math.random()*0.7+0.2).toFixed(2);
+      var dur=(Math.random()*3+2).toFixed(1);
+      html+='<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+color+'" opacity="'+o+'">'+
+            '<animate attributeName="opacity" values="'+o+';'+(o*0.2).toFixed(2)+';'+o+'" dur="'+dur+'s" repeatCount="indefinite"/></circle>';
+    }
+    svg.setAttribute('viewBox','0 0 '+w+' '+h);
+    svg.innerHTML=html;
+  });
+}
+buildStars();
+
+/* ── COUNTDOWN (fixed deadline 16 June 2025 8 PM IST = 14:30 UTC) ── */
+var DEADLINE=new Date('2025-06-16T14:30:00Z').getTime();
+function pad(n){return n<10?'0'+n:''+n}
+function tick(){
+  var d=DEADLINE-Date.now(); if(d<0)d=0;
+  var h=Math.floor(d/36e5),m=Math.floor((d%36e5)/6e4),s=Math.floor((d%6e4)/1e3);
+  set('th',pad(h));set('tm',pad(m));set('ts',pad(s));
+  set('rc',pad(h)+':'+pad(m)+':'+pad(s));
+  set('it',h+'h '+pad(m)+'m '+pad(s)+'s');
+}
+function set(id,v){var e=document.getElementById(id);if(e)e.textContent=v}
+tick();setInterval(tick,1000);
+
+/* ── ACCORDION ── */
+document.querySelectorAll('.acc-h').forEach(function(h){
+  h.addEventListener('click',function(){
+    var acc=h.parentElement,body=acc.querySelector('.acc-body'),open=acc.classList.contains('open');
+    if(open){acc.classList.remove('open');body.style.maxHeight=null;}
+    else{acc.classList.add('open');body.style.maxHeight=body.scrollHeight+40+'px';}
+  });
+});
+
+/* ── FAQ ── */
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var i=q.parentElement,w=i.querySelector('.faq-a-wrap'),open=i.classList.contains('open');
+    if(open){i.classList.remove('open');w.style.maxHeight=null;}
+    else{i.classList.add('open');w.style.maxHeight=w.scrollHeight+'px';}
+  });
+});
+
+/* ── SCROLL REVEAL ── */
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');
+    if(e.target.id==='timeline'||e.target.querySelector('#timeline'))fillTimeline();
+    countUp(e.target);io.unobserve(e.target);}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+/* timeline progress fill */
+function fillTimeline(){var t=document.getElementById('timeline');if(t)t.querySelector('.tl-track').style.setProperty('--prog','86%');}
+var tlObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fillTimeline();tlObs.disconnect();}})},{threshold:.3});
+var tl=document.getElementById('timeline');if(tl)tlObs.observe(tl);
+
+/* ── COUNT-UP ── */
+function countUp(scope){
+  scope.querySelectorAll('[data-count]').forEach(function(el){
+    if(el.dataset.done)return;el.dataset.done=1;
+    var target=+el.dataset.count,suf=el.dataset.suffix||'',start=performance.now(),dur=1400;
+    function fmt(v){if(target>=100000)return (v/100000).toFixed(v<target?1:0).replace(/\.0$/,'')+'L';
+      if(v>=1000)return Math.round(v/1000)+','+pad3(v%1000);return Math.round(v)+'';}
+    function pad3(n){n=Math.round(n);return n<10?'00'+n:n<100?'0'+n:''+n;}
+    function step(now){var p=Math.min((now-start)/dur,1),e=1-Math.pow(1-p,3);
+      el.textContent=fmt(target*e)+suf;if(p<1)requestAnimationFrame(step);else el.textContent=el.textContent;}
+    requestAnimationFrame(step);
+  });
+}
+</script>
+</body>
+</html>
