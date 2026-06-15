@@ -117,7 +117,7 @@ nav{position:sticky;top:0;z-index:80;background:linear-gradient(var(--glass-2),t
 .theme-btn .ico-sun{display:none}
 [data-theme="light"] .theme-btn .ico-sun{display:block}
 [data-theme="light"] .theme-btn .ico-moon{display:none}
-@media(max-width:880px){.nav-links{display:none}.nav-cta-full{display:none}}
+@media(max-width:880px){.nav-links{display:none}.nav-cta-full{display:none}.nav-cta-short{display:inline!important}}
 
 /* ── ANNOUNCEMENT ── */
 .announce{display:flex;justify-content:center;padding:14px 24px 0}
@@ -414,6 +414,25 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
 .fc-sub{font-size:10.5px;color:var(--ink-faint)}
 @media(max-width:680px){.float-cta{display:flex}body{padding-bottom:80px}}
 @media(max-width:540px){.sec{padding:60px 0}.cell-portrait{min-height:340px}}
+
+/* ── HERO OFFER CARD (replaces portrait) ── */
+.cell-offer{grid-area:portrait;display:flex;flex-direction:column;justify-content:center;gap:14px;background:linear-gradient(165deg,var(--glass-2),var(--glass))}
+.cell-offer::before{content:'';position:absolute;inset:0;border-radius:var(--r-md);padding:1.4px;background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.offer-badge{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.04em;background:var(--grad);color:#fff;padding:6px 14px;border-radius:var(--r-pill)}
+.offer-h{font-family:var(--ff-d);font-size:25px;font-weight:600;line-height:1.05;letter-spacing:-.01em}
+.offer-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:2px 0}
+.offer-list li{display:flex;gap:10px;font-size:13.5px;color:var(--ink-soft);align-items:flex-start;line-height:1.4}
+.offer-list .ic{width:17px;height:17px;flex-shrink:0;margin-top:2px;color:var(--gold)}
+.offer-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
+.offer-tag{font-size:11.5px;font-weight:600;color:var(--ink-soft);background:var(--glass-2);border:1px solid var(--line);padding:5px 12px;border-radius:var(--r-pill)}
+.cell-offer .btn{width:100%;justify-content:center;margin-top:4px}
+
+/* ── CREDIBILITY BAND (replaces mentor bio) ── */
+.cred-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.cred-seen{display:flex;align-items:center;justify-content:center;gap:12px 24px;flex-wrap:wrap;margin-top:34px}
+.cred-seen .lbl{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
+.cred-seen .nm{font-family:var(--ff-d);font-size:18px;font-weight:600;color:var(--ink-faint)}
+@media(max-width:640px){.cred-stats{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -438,7 +457,7 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
       <li><a href="#programs">Programs</a></li>
       <li><a href="#curriculum">Curriculum</a></li>
       <li><a href="#ecosystem">Ecosystem</a></li>
-      <li><a href="#mentor">Mentor</a></li>
+      <li><a href="#mentor">Results</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-right">
@@ -455,7 +474,7 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
 <div class="announce">
   <div class="announce-inner">
     <span class="announce-pill">⚡ 48-HR FLASH SALE</span>
-    <span class="announce-txt"><b>Astro Coach ₹24,999</b> · <b>Astrologer ₹7,999</b> — ends 16 June, 8 PM IST</span>
+    <span class="announce-txt"><b>Astro Coach ₹24,999</b> · <b>Astrologer ₹7,999</b> — offer ends in</span>
     <span class="announce-clock" id="rc">—</span>
   </div>
 </div>
@@ -475,12 +494,20 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
         </div>
       </div>
 
-      <div class="cell-portrait">
-        <img src="assets/puneet-hero.jpg" alt="Puneet Nahata — founder of Astro-Psychology">
-        <div class="portrait-tag">
-          <div class="pt-av">PN</div>
-          <div><div class="pt-name">Puneet Nahata</div><div class="pt-role">Celebrity Astrologer · Founder</div></div>
+      <div class="cell glass cell-offer">
+        <span class="offer-badge">⚡ 48-Hour Flash Sale</span>
+        <h3 class="offer-h">Astro Coach<br>Certification</h3>
+        <ul class="offer-list">
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>36+ live sessions over 3 months</li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Astro Profile system + app tools</li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Placement &amp; international listing</li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Professional certification</li>
+        </ul>
+        <div class="offer-meta">
+          <span class="offer-tag">🔥 Only 12 seats</span>
+          <span class="offer-tag">📅 Next cohort opening</span>
         </div>
+        <a href="#enroll" class="btn btn-primary">Claim your seat →</a>
       </div>
 
       <div class="cell glass cell-price">
@@ -575,7 +602,7 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
         <div class="prog-price-row"><span class="prog-price">₹7,999</span><span class="prog-was">₹15,000</span><span class="prog-save">Save ₹7,001</span></div>
         <span class="prog-sessions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>24–28 Live Sessions</span>
         <ul class="prog-list">
-          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>24–28 live sessions with Puneet Nahata</li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>24–28 live sessions with the founder &amp; mentors</li>
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Foundations — charts, signs, planets, houses, yogas</li>
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Prediction — Dasha, transit, life analysis</li>
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Consultation structure, ethics & remedies</li>
@@ -598,7 +625,7 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Supervised live consultations with real clients</li>
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>App, software & client-management tools</li>
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Placement support & international platform listing</li>
-          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>Astro Coach certification by Puneet Nahata</b></li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>Professional Astro Coach certification</b></li>
         </ul>
         <a href="#enroll" class="btn btn-primary">Enroll at ₹24,999 →</a>
       </div>
@@ -762,7 +789,7 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
         <div class="glass eco-c">
           <div class="eco-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></div>
           <div class="eco-t">Astro Profile System</div>
-          <div class="eco-d">Puneet's proprietary framework — 20 years in the making, proven across <b>20,000+ consultations.</b></div>
+          <div class="eco-d">A proprietary framework — 20 years in the making, proven across <b>20,000+ consultations.</b></div>
         </div>
         <div class="glass eco-c">
           <div class="eco-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
@@ -800,40 +827,28 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
       <div class="glass get-c"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="get-t">Supervised practice</div><div class="get-d">Practice on real clients under supervision before graduating. Real confidence, real feedback.</div></div>
       <div class="glass get-c"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><div class="get-t">App & software tools</div><div class="get-d">Client management, notes, scheduling and progress tracking — used by 2L+ users globally.</div></div>
       <div class="glass get-c"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg></div><div class="get-t">Cohort community</div><div class="get-d">Peer support, case reviews and discussion across a 5,000+ alumni network.</div></div>
-      <div class="glass get-c hl wide"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg></div><div class="get-t">Certification + International listing</div><div class="get-d">Certified Astro Coach credential assessed personally by Puneet Nahata, plus a listing on the global platform — 2L+ users seeking qualified coaches. Earn in ₹, $ and €.</div></div>
+      <div class="glass get-c hl wide"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg></div><div class="get-t">Certification + International listing</div><div class="get-d">Certified Astro Coach credential assessed by the founder, plus a listing on the global platform — 2L+ users seeking qualified coaches. Earn in ₹, $ and €.</div></div>
     </div>
   </div>
 </section>
 
-<!-- MENTOR -->
+<!-- CREDIBILITY / RESULTS -->
 <section id="mentor" class="sec">
   <div class="wrap reveal">
-    <div class="sec-head">
-      <p class="sec-eye">Your mentor</p>
-      <h2 class="sec-h">Puneet <span class="g">Nahata</span></h2>
+    <div class="sec-head center">
+      <p class="sec-eye">Built on a proven system</p>
+      <h2 class="sec-h">A method refined over <span class="g">20 years</span></h2>
+      <p class="sec-desc">This isn't theory. The Astro Coach system was built over two decades and 20,000+ real consultations — taught by a celebrity astrologer trusted across Russia and Europe, now bringing the method to India.</p>
     </div>
-    <div class="bio-bento">
-      <div class="bio-img-cell">
-        <img src="assets/puneet-hero.jpg" alt="Puneet Nahata — Celebrity Astrologer & founder of Astro-Psychology">
-        <div class="bio-quote">"Your chart is not your <span class="g">ceiling.</span>"</div>
-      </div>
-      <div class="glass bio-content">
-        <p class="bio-name">Puneet Nahata</p>
-        <p class="bio-role">Celebrity Astrologer · Founder of Astro-Psychology · Lead Mentor</p>
-        <p class="bio-text">I spent almost half my life in the West — and what surprised me most was this: in nearly 80 years since Freud, not a single astrologer had built a demonstrable system showing the depth of Jyotish in understanding the human mind.</p>
-        <p class="bio-text">So I built one. Over 20 years I developed an <b>Astro-Psychology framework</b> people could study, apply and test. It found success across Russia and Europe — trusted by celebrities, politicians and business leaders. My dream now: <b>10,000 Astro Coaches across India.</b></p>
-        <ul class="bio-bullets">
-          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>20,000+ personal consultations across Russia, Europe & internationally</li>
-          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>5,000+ students trained — among the largest Jyotish communities outside India</li>
-          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>2,00,000+ app users, majority international</li>
-          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Trusted advisor to celebrities, politicians & Forbes-listed leaders</li>
-          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Recognised authority on Russian national TV & international media</li>
-        </ul>
-        <p class="as-seen-l">As seen on</p>
-        <div class="as-seen">
-          <span class="chip">Channel One</span><span class="chip">Russia 1</span><span class="chip">REN TV</span><span class="chip">TASS</span><span class="chip">RBC</span><span class="chip">Kommersant</span>
-        </div>
-      </div>
+    <div class="cred-stats">
+      <div class="glass stat"><div class="stat-n" data-count="20000" data-suffix="+">20,000+</div><div class="stat-l">Personal consultations</div></div>
+      <div class="glass stat"><div class="stat-n" data-count="5000" data-suffix="+">5,000+</div><div class="stat-l">Students trained</div></div>
+      <div class="glass stat"><div class="stat-n">2,00,000+</div><div class="stat-l">App users worldwide</div></div>
+      <div class="glass stat"><div class="stat-n">₹1L+</div><div class="stat-l">Top coaches earn / month</div></div>
+    </div>
+    <div class="cred-seen">
+      <span class="lbl">As featured on</span>
+      <span class="nm">Channel One</span><span class="nm">Russia 1</span><span class="nm">REN TV</span><span class="nm">TASS</span><span class="nm">RBC</span>
     </div>
   </div>
 </section>
@@ -871,10 +886,10 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
     </div>
     <div class="enroll-bento">
       <div class="glass enroll-main">
-        <p class="en-date"><span class="g">15 July 2025</span></p>
-        <p class="en-meta">Weekend live sessions · Recordings within 24 hrs · Hindi & English</p>
-        <p class="en-timer">⚡ Sale ends <b>16 June 2025, 8 PM IST</b> — time left: <b id="it">—</b></p>
-        <span class="seat-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Only 12 seats in the July 2025 cohort</span>
+        <p class="en-date"><span class="g">Enrolling Now</span></p>
+        <p class="en-meta">New cohort opening soon · Weekend live sessions · Recordings within 24 hrs · Hindi & English</p>
+        <p class="en-timer">⚡ Flash sale ends in: <b id="it">—</b></p>
+        <span class="seat-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Only 12 seats in the upcoming cohort</span>
         <div class="no-ref">
           <p class="nr-t">Important — please read before enrolling</p>
           <p class="nr-d">This program does not offer a money-back guarantee. Attend the free webinar, review the curriculum, and message us on WhatsApp with any questions before paying. Once enrolled, your seat is confirmed and the fee is non-refundable.</p>
@@ -921,9 +936,9 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
   <div class="wrap reveal">
     <div class="glass cta-card">
       <p class="bigq">Build a career that<br>changes lives — including <span class="g">your own.</span></p>
-      <p class="bigq-attr">— Puneet Nahata · Founder, Astro Coach</p>
-      <a href="#enroll" class="btn btn-primary lg">Join the July 2025 Cohort →</a>
-      <p class="cta-note">Astro Coach ₹24,999 · Professional Astrologer ₹7,999 · Sale ends 16 June 8 PM IST · 12 seats only</p>
+      <p class="bigq-attr">Astro Coach · Professional Certification Program</p>
+      <a href="#enroll" class="btn btn-primary lg">Claim your seat →</a>
+      <p class="cta-note">Astro Coach ₹24,999 · Professional Astrologer ₹7,999 · Limited-time flash sale · 12 seats only</p>
     </div>
   </div>
 </section>
@@ -935,7 +950,7 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
       <svg width="26" height="26" viewBox="0 0 48 48" fill="none" aria-hidden="true"><defs><linearGradient id="g2" x1="4" y1="4" x2="44" y2="44"><stop stop-color="#8b6dff"/><stop offset=".55" stop-color="#ff5ca8"/><stop offset="1" stop-color="#f0b955"/></linearGradient></defs><path d="M24 7 L27 21 L41 24 L27 27 L24 41 L21 27 L7 24 L21 21 Z" fill="url(#g2)"/></svg>
       Astro<span>Coach</span>
     </div>
-    <p>The educational arm of the Astro Coach ecosystem · A program by Puneet Nahata · Questions? Message us on WhatsApp before enrolling.</p>
+    <p>The educational arm of the Astro Coach ecosystem · Questions? Message us on WhatsApp before enrolling.</p>
     <p style="margin-top:10px">© 2025 Astro Coach · This is an educational program; outcomes vary by individual effort.</p>
   </div>
 </footer>
@@ -944,7 +959,7 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
 <div class="glass float-cta">
   <div>
     <div class="fc-price">₹24,999</div>
-    <div class="fc-sub">Astro Coach · ends 16 June</div>
+    <div class="fc-sub">Astro Coach · limited-time offer</div>
   </div>
   <a href="#enroll" class="btn btn-primary">Enroll →</a>
 </div>
@@ -963,16 +978,19 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
 /* MARQUEE DUPLICATE for seamless loop */
 (function(){var t=document.getElementById('mq');if(t)t.innerHTML+=t.innerHTML;})();
 
-/* COUNTDOWN */
-var DEADLINE=new Date('2025-06-16T14:30:00Z').getTime();
+/* COUNTDOWN — evergreen 48-hour flash sale (always running, resets when it hits zero) */
+var DUR=48*60*60*1000,KEY='acb-deadline';
+var DEADLINE=parseInt(localStorage.getItem(KEY),10);
+if(!DEADLINE||isNaN(DEADLINE)||DEADLINE-Date.now()<=0){DEADLINE=Date.now()+DUR;localStorage.setItem(KEY,DEADLINE);}
 function pad(n){return n<10?'0'+n:''+n}
+function set(id,v){var e=document.getElementById(id);if(e)e.textContent=v}
 function tick(){
-  var d=DEADLINE-Date.now();if(d<0)d=0;
+  var d=DEADLINE-Date.now();
+  if(d<=0){DEADLINE=Date.now()+DUR;localStorage.setItem(KEY,DEADLINE);d=DUR;}
   var h=Math.floor(d/36e5),m=Math.floor((d%36e5)/6e4),s=Math.floor((d%6e4)/1e3);
   set('th',pad(h));set('tm',pad(m));set('ts',pad(s));
   set('rc',pad(h)+':'+pad(m)+':'+pad(s));set('it',h+'h '+pad(m)+'m '+pad(s)+'s');
 }
-function set(id,v){var e=document.getElementById(id);if(e)e.textContent=v}
 tick();setInterval(tick,1000);
 
 /* ACCORDION */
