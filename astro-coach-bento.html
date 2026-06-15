@@ -466,6 +466,29 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
 .cred-seen .lbl{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
 .cred-seen .nm{font-family:var(--ff-d);font-size:18px;font-weight:600;color:var(--ink-faint)}
 @media(max-width:640px){.cred-stats{grid-template-columns:1fr 1fr}}
+/* ── PAYMENT MODAL ── */
+.pay-modal{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:20px}
+.pay-modal.open{display:flex}
+.pay-overlay{position:absolute;inset:0;background:rgba(7,6,14,.72);backdrop-filter:blur(6px)}
+.pay-card{position:relative;width:100%;max-width:470px;padding:30px 28px;border-radius:var(--r-md);z-index:1;max-height:92vh;overflow:auto}
+.pay-x{position:absolute;top:14px;right:16px;background:var(--glass-2);border:1px solid var(--line);width:32px;height:32px;border-radius:50%;color:var(--ink-soft);font-size:20px;cursor:pointer;line-height:1;display:grid;place-items:center;transition:.2s}
+.pay-x:hover{color:var(--ink);border-color:var(--magenta)}
+.pay-eye{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--magenta)}
+.pay-title{font-family:var(--ff-d);font-size:25px;font-weight:600;margin:8px 0 5px;letter-spacing:-.01em}
+.pay-sub{font-size:13.5px;color:var(--ink-soft);margin-bottom:22px;line-height:1.5}
+.pay-levels{display:flex;flex-direction:column;gap:11px;margin-bottom:22px}
+.pay-lvl{display:flex;align-items:center;gap:14px;padding:15px 16px;border:1px solid var(--line);border-radius:14px;cursor:pointer;transition:border-color .2s,background .2s;background:var(--glass)}
+.pay-lvl:hover{border-color:var(--violet)}
+.pay-lvl.sel{border-color:transparent;background:linear-gradient(165deg,var(--glass-2),var(--glass));box-shadow:0 0 0 1.6px var(--magenta)}
+.pay-radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--ink-ghost);flex-shrink:0;display:grid;place-items:center;transition:.2s}
+.pay-lvl.sel .pay-radio{border-color:var(--magenta)}
+.pay-lvl.sel .pay-radio::after{content:'';width:10px;height:10px;border-radius:50%;background:var(--grad)}
+.pay-lvl-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.pay-lvl-name{font-family:var(--ff-d);font-size:15.5px;font-weight:600;line-height:1.2}
+.pay-lvl-meta{font-size:12px;color:var(--ink-faint);margin-top:2px}
+.pay-lvl-price{font-family:var(--ff-d);font-size:21px;font-weight:700;background:var(--grad-warm);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;flex-shrink:0}
+.pay-card .btn{width:100%;justify-content:center}
+.pay-secure{font-size:11.5px;color:var(--ink-faint);text-align:center;margin-top:13px;display:flex;align-items:center;justify-content:center;gap:7px}
 </style>
 </head>
 <body>
@@ -1005,6 +1028,21 @@ footer p{font-size:12.5px;color:var(--ink-faint);max-width:600px;margin:0 auto 6
   <a href="#enroll" class="btn btn-primary">Enroll →</a>
 </div>
 
+<!-- PAYMENT MODAL -->
+<div class="pay-modal" id="payModal" role="dialog" aria-modal="true">
+  <div class="pay-overlay" data-close></div>
+  <div class="pay-card glass">
+    <button class="pay-x" data-close aria-label="Close">×</button>
+    <p class="pay-eye">✦ Choose your level</p>
+    <h3 class="pay-title">Select your enrolment</h3>
+    <p class="pay-sub">Pay only for the level you choose. Secure checkout via Razorpay — UPI, cards & netbanking.</p>
+    <div class="pay-levels" id="payLevels"></div>
+    <button class="btn btn-primary" id="payBtn">Pay <span id="payAmt">₹40,000</span> →</button>
+    <p class="pay-secure">🔒 Payments secured by Razorpay</p>
+  </div>
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
 /* THEME */
 (function(){
@@ -1083,6 +1121,65 @@ function countUp(scope){
     requestAnimationFrame(step);
   });
 }
+/* ── RAZORPAY PAYMENT (Key ID only — secret must stay server-side) ── */
+(function(){
+  var RZP_KEY='rzp_live_T0m9SGSmDxxg26';
+  var LEVELS=[
+    {n:'Level 1 — Astrology Foundations',m:'2 weeks',p:10000},
+    {n:'Level 2 — Professional Astrologer',m:'6 weeks',p:25000},
+    {n:'Level 3 — Certified AstroCoach',m:'Full program · 4 extra weeks',p:40000}
+  ];
+  var sel=2,modal=document.getElementById('payModal');
+  if(!modal)return;
+  function inr(n){return '₹'+n.toLocaleString('en-IN');}
+  function render(){
+    var box=document.getElementById('payLevels');box.innerHTML='';
+    LEVELS.forEach(function(L,i){
+      var d=document.createElement('div');d.className='pay-lvl'+(i===sel?' sel':'');
+      d.innerHTML='<span class="pay-radio"></span><span class="pay-lvl-info"><span class="pay-lvl-name">'+L.n+'</span><span class="pay-lvl-meta">'+L.m+'</span></span><span class="pay-lvl-price">'+inr(L.p)+'</span>';
+      d.addEventListener('click',function(){sel=i;render();});
+      box.appendChild(d);
+    });
+    document.getElementById('payAmt').textContent=inr(LEVELS[sel].p);
+  }
+  function openPay(pre){if(pre!=null)sel=pre;render();modal.classList.add('open');document.body.style.overflow='hidden';}
+  function closePay(){modal.classList.remove('open');document.body.style.overflow='';}
+  modal.querySelectorAll('[data-close]').forEach(function(el){el.addEventListener('click',closePay);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closePay();});
+
+  document.getElementById('payBtn').addEventListener('click',function(){
+    var L=LEVELS[sel];
+    if(typeof Razorpay==='undefined'){alert('Payment library could not load. Please check your connection and try again.');return;}
+    var rzp=new Razorpay({
+      key:RZP_KEY,
+      amount:L.p*100,            /* in paise */
+      currency:'INR',
+      name:'AstroCoach',
+      description:L.n,
+      theme:{color:'#8b6dff'},
+      notes:{level:L.n},
+      handler:function(resp){
+        closePay();
+        alert('✓ Payment successful!\nPayment ID: '+resp.razorpay_payment_id+'\n\nWe’ll reach out on WhatsApp to confirm your enrolment.');
+      },
+      modal:{ondismiss:function(){}}
+    });
+    rzp.on('payment.failed',function(r){alert('Payment failed: '+((r.error&&r.error.description)||'Please try again.'));});
+    rzp.open();
+  });
+
+  /* Wire every enrol / claim CTA to open the level picker (pre-selecting where the context implies a level) */
+  function levelFor(btn){
+    if(btn.closest('.cell-offer'))return 2;
+    var p=btn.closest('.prog');if(p)return p.classList.contains('feat')?2:1;
+    var o=btn.closest('.en-opt');if(o)return o.classList.contains('feat')?2:1;
+    return null;
+  }
+  document.querySelectorAll('a[href="#enroll"], .en-opt a.btn').forEach(function(b){
+    b.addEventListener('click',function(e){e.preventDefault();openPay(levelFor(b));});
+  });
+  render();
+})();
 </script>
 </body>
 </html>
